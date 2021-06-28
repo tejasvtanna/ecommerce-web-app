@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button/> snapshot testing 1`] = `
+<div>
+  <button
+    className="btn btn-light btn-block"
+    data-testid="btn"
+    disabled={false}
+    style={Object {}}
+    type="button"
+  >
+    First Button
+  </button>
+</div>
+`;

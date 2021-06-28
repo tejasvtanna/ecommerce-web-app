@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`scapshot testing 1`] = `
+<div
+  className="buttonsWrapper1"
+>
+  <div>
+    <button
+      className="btn btn-primary"
+      data-testid="btn"
+      disabled={false}
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#ff3e6c",
+          "borderColor": "#ff3e6c",
+        }
+      }
+      type="button"
+    >
+      -
+    </button>
+  </div>
+  <h5
+    className="counter"
+    data-testid="count"
+  >
+    1
+  </h5>
+  <div>
+    <button
+      className="btn btn-primary"
+      data-testid="btn"
+      disabled={false}
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#ff3e6c",
+          "borderColor": "#ff3e6c",
+        }
+      }
+      type="button"
+    >
+      +
+    </button>
+  </div>
+</div>
+`;

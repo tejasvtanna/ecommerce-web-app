@@ -1,0 +1,60 @@
+.card {
+  border: none !important;
+  margin-bottom: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 2px 4px rgba(21, 28, 84, 0.2);
+  transition: 0.25s ease-in;
+}
+
+.card:hover {
+  /* box-shadow: 0px 2px 4px rgba(21, 28, 84, 0.5); */
+  box-shadow: 0 5px 50px rgb(0 0 0 / 12%), 0 5px 20px rgb(0 0 0 / 10%);
+  /* box-shadow: 0px 11px 13.35px 1.65px rgb(148 148 148 / 23%); */
+  cursor: pointer;
+}
+
+.cardTitle {
+  /* background-color: yellow; */
+  min-height: 3rem;
+  margin-bottom: 0 !important;
+}
+
+.cardTxt {
+  font-size: 1.1rem;
+}
+
+.heading {
+  font-weight: 500;
+  color: black;
+}
+
+.img {
+  border-radius: 0.5rem;
+}
+
+.button {
+  border-radius: 0.5rem !important;
+}
+
+.buttonsWrapper {
+  display: flex;
+  justify-content: space-evenly;
+  /* margin-top: 0.5rem; */
+}
+
+.starRatings {
+  color: #e7711b;
+  font-size: 1.5rem;
+}
+
+.cardBody {
+  padding: 0.5rem 0.5rem !important;
+  /* padding: 0.1 !important; */
+}
+
+.priceWithoutDiscount {
+  color: grey;
+  text-decoration: line-through;
+  text-align: right;
+  margin-right: 0.5rem;
+}

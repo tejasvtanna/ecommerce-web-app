@@ -1,0 +1,83 @@
+.card {
+  /* box-shadow: 2px 2px 4px rgba(21, 28, 84, 0.2); */
+  box-shadow: 0 5px 50px rgb(0 0 0 / 12%), 0 5px 20px rgb(0 0 0 / 10%);
+  border: none !important;
+}
+
+.cardBody {
+  padding-top: 0.5rem;
+}
+
+.title {
+  font-size: 2rem;
+  /* color: rgb(128, 128, 128);
+  margin-top: 0rem;
+  margin-bottom: 1.5rem; */
+}
+
+.btnSizeColor {
+  background-color: transparent;
+  border-color: #dee2e6 !important;
+  border-width: 0.05rem;
+  border-radius: 0.2rem;
+  margin-right: 0.2rem;
+  margin-bottom: 0.3rem;
+  height: 2.2rem;
+}
+
+.smallDesc {
+  font-size: 12px;
+  color: rgb(128, 128, 128);
+  margin-top: 0rem;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.starRatings {
+  color: #e7711b;
+  font-size: 1.75rem;
+}
+
+.addToWishlist {
+  padding-top: 10rem;
+}
+
+.container {
+  border: 0.1rem solid rgb(128, 128, 128);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.btnAddToCart {
+  background-color: #6110e9;
+  outline: #7733ea;
+  color: #ffffff;
+  border-color: #6110e9;
+}
+
+.priceWithoutDiscount {
+  font: 1.5rem Calibri;
+  color: grey;
+  text-decoration: line-through;
+  text-align: right;
+  /* padding-left: 1.5rem; */
+}
+
+.price {
+  /* font: 18px Calibri; */
+  font: 1.5rem Calibri;
+  font-weight: bolder;
+  text-align: right;
+  padding-left: 1rem;
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+.icon {
+  font-size: 1.3rem;
+  float: left;
+}
+
+.heading {
+  font-weight: 500;
+  color: black;
+}

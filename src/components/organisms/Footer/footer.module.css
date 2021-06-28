@@ -1,0 +1,15 @@
+.footer {
+  background-color: #e9e0f8;
+  margin-top: 2rem;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+}
+
+.footertext {
+  display: flex;
+  justify-content: space-around;
+}
+.footertextColumn {
+  margin-top: 1rem;
+}

@@ -1,0 +1,10 @@
+.container {
+    padding: 1rem;
+}
+
+.btnAddToCart {
+    background-color: #6110e9;
+    outline: #7733ea;
+    color: #ffffff;
+    border-color: #6110e9;
+}

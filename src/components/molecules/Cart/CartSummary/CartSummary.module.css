@@ -1,0 +1,22 @@
+.icon {
+  font-size: 1.3rem;
+  float: left;
+}
+
+.table {
+  margin: 0;
+}
+
+.table td:nth-child(3) {
+  text-align: right;
+}
+
+.heading {
+  font-weight: 500;
+  color: black;
+}
+
+.icon {
+  font-size: 1.5rem;
+  float: left;
+}

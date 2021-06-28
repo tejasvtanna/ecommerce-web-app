@@ -1,0 +1,8 @@
+.alert {
+  position: fixed !important;
+  bottom: 0;
+  margin-left: 42%;
+  width: 30rem;
+  text-align: center;
+  z-index: 999;
+}

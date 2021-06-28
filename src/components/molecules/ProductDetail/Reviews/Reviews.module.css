@@ -1,0 +1,19 @@
+.card {
+  /* box-shadow: 2px 2px 4px rgba(21, 28, 84, 0.2); */
+  box-shadow: 0 5px 50px rgb(0 0 0 / 12%), 0 5px 20px rgb(0 0 0 / 10%);
+  border: none !important;
+}
+
+.starRatings {
+  color: #e7711b;
+  font-size: 13px;
+  padding: 0;
+  float: right;
+}
+
+.reviewBlock:not(:last-child) .review {
+  /* background-color: yellow; */
+  border-bottom: 1px solid #d8d8d8;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}

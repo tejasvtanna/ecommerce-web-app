@@ -1,0 +1,19 @@
+.card {
+  min-width: 15rem;
+  border: none !important;
+  box-shadow: 0px 2px 4px #ececee;
+}
+
+.header {
+  border: none !important;
+}
+
+.starRatings {
+  color: #e7711b;
+  font-size: 13px;
+  padding: 0;
+}
+
+.label label {
+  margin-left: 0.5rem;
+}

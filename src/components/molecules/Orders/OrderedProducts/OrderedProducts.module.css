@@ -1,0 +1,29 @@
+.table {
+  /* box-shadow: 0px 2px 4px rgba(21, 28, 84, 0.2); */
+  border: none;
+  /* margin-left: 1rem; */
+  margin-bottom: 0 !important;
+}
+
+.table td {
+  vertical-align: middle;
+  border: none;
+}
+
+.tfoot {
+  /* background-color: rgb(218, 208, 208); */
+  border-top: solid #f7f7f7;
+}
+
+.price {
+  text-align: center;
+}
+
+.heading {
+  font-weight: 500;
+  color: black;
+}
+
+.img {
+  max-width: 10rem;
+}

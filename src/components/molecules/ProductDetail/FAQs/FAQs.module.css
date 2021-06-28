@@ -1,0 +1,12 @@
+.card {
+  box-shadow: 2px 2px 4px rgba(21, 28, 84, 0.2);
+}
+
+.container {
+  border: 0.1rem solid rgb(128, 128, 128);
+  border-radius: 1rem;
+}
+
+.accHeader {
+  cursor: pointer;
+}

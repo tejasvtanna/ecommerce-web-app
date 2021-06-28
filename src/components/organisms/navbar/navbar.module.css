@@ -1,0 +1,95 @@
+.navbar {
+  background-color: #ededef !important;
+}
+
+.navWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.leftSide {
+  display: flex;
+  align-items: center;
+}
+
+.rightSlide {
+  display: flex;
+  align-items: center;
+}
+
+/* .nav {
+  margin-left: 3rem;
+} */
+
+.search {
+  border: none !important;
+  /* border-radius: 0.8rem !important; */
+  width: 45rem !important;
+  margin-left: 2rem !important;
+  height: 2.9rem !important;
+  font-size: 1.2rem !important;
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .search {
+    width: 30rem;
+  }
+}
+
+.searchIcon {
+  width: 2rem;
+  height: 2.1rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.searchIcon:hover {
+  cursor: pointer;
+}
+
+.icon {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.cart {
+  float: right;
+}
+
+.link {
+  /* background-color: yellow; */
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-right: 2rem;
+  border-bottom: 2px solid transparent;
+  transition: 1s ease;
+}
+
+.link:hover {
+  border-bottom: 2px solid #ff3e6c;
+  /* transition: 1s ease-in-out; */
+}
+
+.logo {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  /* max-width: inherit; */
+  /* max-height: 8rem; */
+}
+
+.brand2 {
+  width: 13rem;
+  margin-right: 3rem !important;
+  /* font-size: 2rem;
+  margin-right: 3rem;
+  color: rgb(99, 97, 97); */
+}
+
+.tags {
+  font-size: 2.5rem;
+  color: #ff3e6c;
+  font-weight: 500;
+}

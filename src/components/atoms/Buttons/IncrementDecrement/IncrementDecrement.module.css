@@ -1,0 +1,13 @@
+.buttonsWrapper1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  border: solid 1px #ff3e6c;
+  margin-bottom: 1rem;
+}
+
+.counter {
+  margin: 0;
+}
