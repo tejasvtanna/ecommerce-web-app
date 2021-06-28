@@ -15,10 +15,10 @@ const OrderedProducts = ({ products }: Props) => {
   return (
     <Table striped className={styles.table}>
       <tbody>
-        {products.map((product: any, idx: number) => (
-          <tr key={idx}>
+        {products.map((product: any) => (
+          <tr key={product.id}>
             <td style={{ width: '20%' }}>
-              <img src={`${product.image}?random=${idx}`} className={styles.img} alt="" />
+              <img src={`${product.image}?random=${product.id}`} className={styles.img} alt="" />
             </td>
             <td>
               <Link to={`/product/${product.id}`} className={styles.heading} target="_blank">

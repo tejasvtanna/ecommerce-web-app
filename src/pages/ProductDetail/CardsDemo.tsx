@@ -68,8 +68,8 @@ const CardsDemo = ({}: Props) => {
 
             <Col>
               <Row>
-                {products.map((product: any, index: number) => (
-                  <Col sm={3} key={index}>
+                {products.map((product: any) => (
+                  <Col sm={3} key={product.id}>
                     <ProductCard product={product}></ProductCard>
                   </Col>
                 ))}

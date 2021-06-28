@@ -46,8 +46,8 @@ export const Reviews: React.FC<Props> = ({ productId }: Props) => {
         {loading && <FadingLoader />}
         {!loading && reviews.length === 0 && <small>No reviews yet</small>}
         {!loading &&
-          reviews.map((review: any, index: number) => (
-            <div className={styles.reviewBlock} key={index}>
+          reviews.map((review: any) => (
+            <div className={styles.reviewBlock} key={review.id}>
               <Row>
                 <Col>
                   <h5>{review.reviewer}</h5>
@@ -57,8 +57,8 @@ export const Reviews: React.FC<Props> = ({ productId }: Props) => {
                 </Col>
                 <Col>
                   <div className={styles.starRatings}>
-                    {[...Array(review.ratings)].map((value, index) => (
-                      <span key={index}>★</span>
+                    {[...Array(review.ratings)].map((value, idx) => (
+                      <span key={idx}>★</span>
                     ))}
                   </div>
                 </Col>

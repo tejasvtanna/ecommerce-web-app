@@ -39,10 +39,10 @@ const Wishlist = ({}: Props) => {
       )}
       <Row>
         {!loading &&
-          wishlist.map((wish: any, idx: number) => (
+          wishlist.map((wish: any) => (
             <Col sm={6}>
               <Card
-                key={idx}
+                key={wish.id}
                 className={styles.card}
                 onClick={() => {
                   window.open(`/product/${wish.id}`, '_blank')
@@ -52,7 +52,7 @@ const Wishlist = ({}: Props) => {
                     <Col sm={3}>
                       <img
                         className={styles.img}
-                        src={wish.product.images && `${wish.product.images[0]}?random=${idx}`}
+                        src={wish.product.images && `${wish.product.images[0]}?random=${wish.id}`}
                       />
                     </Col>
                     <Col sm={6}>

@@ -43,8 +43,8 @@ export const CartItems = ({ cartItems }: Props) => {
 
   return (
     <>
-      {cartItems.map((item: any, idx: number) => (
-        <Row key={idx}>
+      {cartItems.map((item: any) => (
+        <Row key={item.id}>
           <Col>
             <Card
               className={styles.card}
@@ -55,7 +55,7 @@ export const CartItems = ({ cartItems }: Props) => {
                 <Row>
                   <Col sm={4}>
                     <img
-                      src={item.product.images && `${item.product.images[0]}?random=${idx}`}
+                      src={item.product.images && `${item.product.images[0]}?random=${item.id}`}
                       style={{ maxHeight: '13rem' }}
                     />
                   </Col>

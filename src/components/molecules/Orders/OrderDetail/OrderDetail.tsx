@@ -23,8 +23,8 @@ const OrderDetail = ({ orders }: Props) => {
   return (
     <Row>
       <Col>
-        {orders.map((order: any, idx: number) => (
-          <Card key={idx} className={styles.card} onClick={() => handleShowHide(idx)}>
+        {orders.map((order: any) => (
+          <Card key={order.id} className={styles.card} onClick={() => handleShowHide(order.id)}>
             <Card.Header>
               <Row>
                 <Col>
@@ -63,7 +63,7 @@ const OrderDetail = ({ orders }: Props) => {
                   </Table>
                 </Col>
               </Row>
-              <div style={{ display: showProducts[idx] ? 'block' : 'none' }}>
+              <div style={{ display: showProducts[order.id] ? 'block' : 'none' }}>
                 <Row>
                   <Col>
                     <OrderedProducts products={order.products} />

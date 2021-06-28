@@ -43,8 +43,8 @@ const ManageAddress = () => {
       </Row>
       {!loading && (
         <Row>
-          {addresses.map((address: any, index: number) => (
-            <Col sm={4} key={index}>
+          {addresses.map((address: any) => (
+            <Col sm={4} key={address.id}>
               <Card className={styles.card}>
                 <Card.Header
                   as="h4"

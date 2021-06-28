@@ -75,10 +75,10 @@ export const KeyInfo: React.FC<Props> = ({ product }: Props) => {
                 <span className={styles.heading}>Size:</span>
               </Col>
               <Col>
-                {product.size?.map((sz: string, index: number) => {
+                {product.size?.map((sz: string, idx: number) => {
                   return (
                     <button
-                      key={index}
+                      key={idx}
                       className={styles.btnSizeColor}
                       style={sz === size ? { backgroundColor: '#ff3e6c', border: 'none', color: 'white' } : {}}
                       onClick={() => setSize(sz)}>
@@ -93,10 +93,10 @@ export const KeyInfo: React.FC<Props> = ({ product }: Props) => {
                 <span className={styles.heading}>Color:</span>
               </Col>
               <Col>
-                {product.colors?.map((clr: string, index: number) => {
+                {product.colors?.map((clr: string, idx: number) => {
                   return (
                     <button
-                      key={index}
+                      key={idx}
                       className={styles.btnSizeColor}
                       style={clr === color ? { backgroundColor: '#ff3e6c', border: 'none', color: 'white' } : {}}
                       onClick={() => setColor(clr)}>

@@ -27,8 +27,8 @@ const ProductHighlight = ({ heading, products }: Props) => {
               </Col>
             </>
           )*/}
-          {products.map((product: any, index: number) => (
-            <Col sm={2} key={index}>
+          {products.map((product: any) => (
+            <Col sm={2} key={product.id}>
               <ProductCard product={product} openInNewTab={false} />
             </Col>
           ))}

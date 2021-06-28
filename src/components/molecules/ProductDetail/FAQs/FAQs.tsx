@@ -44,16 +44,16 @@ export const FAQs: React.FC<Props> = ({ productId }: Props) => {
           {loading && <FadingLoader />}
           {!loading && (
             <Accordion>
-              {faqs.map((faq: any, index: number) => (
-                <Card key={index} className={styles.card}>
+              {faqs.map((faq: any) => (
+                <Card key={faq.id} className={styles.card}>
                   <Accordion.Toggle
                     className={styles.accHeader}
                     as={Card.Header}
                     variant="link"
-                    eventKey={index.toString()}>
+                    eventKey={faq.id.toString()}>
                     {faq.question}
                   </Accordion.Toggle>
-                  <Accordion.Collapse eventKey={index.toString()}>
+                  <Accordion.Collapse eventKey={faq.id.toString()}>
                     <Card.Body>{faq.answer}</Card.Body>
                   </Accordion.Collapse>
                 </Card>

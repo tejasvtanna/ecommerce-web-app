@@ -21,8 +21,8 @@ export const ImageSlider: React.FC<Props> = ({ images }: Props) => {
         <Col>
           {imagesRandom && (
             <Carousel activeIndex={index} onSelect={handleSelect}>
-              {imagesRandom.map((img: string, index: number) => (
-                <Carousel.Item key={index} style={{ maxHeight: '35rem' }}>
+              {imagesRandom.map((img: string, idx: number) => (
+                <Carousel.Item key={idx} style={{ maxHeight: '35rem' }}>
                   <img className="d-block w-100" src={img} alt="" />
                 </Carousel.Item>
               ))}
@@ -35,13 +35,13 @@ export const ImageSlider: React.FC<Props> = ({ images }: Props) => {
       </Row>
       <Row>
         {imagesRandom &&
-          imagesRandom.map((img: string, index: number) => (
-            <Col key={index}>
+          imagesRandom.map((img: string, idx: number) => (
+            <Col key={idx}>
               <img
                 className={`d-block w-100 ${styles.img}`}
                 src={img}
                 alt="Product Image"
-                onClick={() => handleSelect(index)}
+                onClick={() => handleSelect(idx)}
               />
             </Col>
           ))}
