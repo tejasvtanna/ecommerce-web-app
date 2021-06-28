@@ -5,13 +5,14 @@ import { FiXSquare } from 'react-icons/fi'
 import { useSelector, useDispatch } from 'react-redux'
 import FadingLoader from 'components/atoms/Loaders/FadingLoader'
 import { wishlistActions } from 'redux/actions'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { useAuth } from 'contexts/AuthContext'
 import { Button } from 'components/atoms/Buttons'
 
 interface Props {}
 
 const Wishlist = ({}: Props) => {
+  const history = useHistory()
   const dispatch = useDispatch()
   const { currentUser } = useAuth()
   const loading = useSelector((state: any) => state.wishlist.loading)
@@ -45,7 +46,8 @@ const Wishlist = ({}: Props) => {
                 key={wish.id}
                 className={styles.card}
                 onClick={() => {
-                  window.open(`/product/${wish.id}`, '_blank')
+                  // window.open(`/product/${wish.id}`, '_blank')
+                  history.push(`/product/${wish.id}`)
                 }}>
                 <Card.Body>
                   <Row>
