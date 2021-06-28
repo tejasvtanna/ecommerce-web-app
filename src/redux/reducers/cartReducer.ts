@@ -44,6 +44,9 @@ export default function cart(state = initialState, action: any) {
         }),
       }
 
+    case actionConst.RESET:
+      return initialState
+
     default:
       return state
   }

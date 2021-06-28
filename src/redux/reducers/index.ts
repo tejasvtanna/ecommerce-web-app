@@ -7,8 +7,9 @@ import wishlist from './wishlistReducer'
 import cart from './cartReducer'
 import addresses from './addressReducer'
 import alert from './alertReducer'
+import { actionConst } from 'utilities/constants'
 
-const rootReducer = combineReducers({
+const appReducer = combineReducers({
   user,
   products,
   orders,
@@ -17,5 +18,13 @@ const rootReducer = combineReducers({
   addresses,
   alert,
 })
+
+const rootReducer = (state: any, action: any) => {
+  // if (action.type === actionConst.RESET_STORE) {
+  //   return appReducer(undefined, action)
+  // }
+
+  return appReducer(state, action)
+}
 
 export default rootReducer

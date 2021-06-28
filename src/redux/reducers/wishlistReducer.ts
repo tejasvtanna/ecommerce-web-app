@@ -32,6 +32,9 @@ export default function wishlist(state = initialState, action: any) {
         list: state.list.filter((wish: any) => wish.id !== action.id),
       }
 
+    case actionConst.RESET:
+      return initialState
+
     default:
       return state
   }

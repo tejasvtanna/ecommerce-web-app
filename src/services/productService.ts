@@ -2,13 +2,8 @@ import api from './api'
 import { urlConst } from '../utilities/constants'
 
 export const productService = {
-  getAllProducts,
   getTrendingProducts,
   getTopOfferProducts,
-}
-
-function getAllProducts() {
-  return api.get(urlConst.PRODUCTS)
 }
 
 function getTrendingProducts(category: string) {

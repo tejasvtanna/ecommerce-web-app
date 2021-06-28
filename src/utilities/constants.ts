@@ -14,6 +14,7 @@ export const urlConst = {
 
 export const actionConst = {
   LOADING_DATA: 'LOADING_DATA',
+  RESET: 'RESET',
 
   // alert
   SUCCESS: 'SUCCESS',

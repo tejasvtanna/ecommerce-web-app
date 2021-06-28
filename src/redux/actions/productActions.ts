@@ -2,24 +2,8 @@ import { productService } from '../../services'
 import { actionConst } from '../../utilities/constants'
 
 export const productActions = {
-  getAllProducts,
   getTrendingProducts,
   getTopOfferProducts,
-}
-
-function getAllProducts() {
-  return (dispatch: any) => {
-    dispatch({ type: actionConst.PRODUCT_REQUEST })
-
-    productService.getAllProducts().then(
-      (products) => {
-        dispatch({ type: actionConst.GET_ALL_PRODUCTS, products })
-      },
-      (error) => {
-        console.error(actionConst.GET_ALL_PRODUCTS, error.toString())
-      }
-    )
-  }
 }
 
 function getTrendingProducts(category: string) {

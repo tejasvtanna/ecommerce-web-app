@@ -26,6 +26,7 @@ const Navbar2 = ({}: Props) => {
   const logOutHandler = async () => {
     signout()
     dispatch(userActions.logOut())
+    dispatch(userActions.resetStore())
     history.push('/')
 
     // await fire.auth().signOut()

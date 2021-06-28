@@ -34,7 +34,7 @@ const CardsDemo = ({}: Props) => {
   const arr = qs.parse('?&gender=Male&gender=Female')
   console.log(`arr`, arr)
 
-  return null
+  // return null
 
   // console.log(`category`, category)
   // console.log(`brands`, brands)
@@ -45,7 +45,7 @@ const CardsDemo = ({}: Props) => {
   }
 
   useEffect(() => {
-    dispatch(productActions.getAllProducts())
+    dispatch(productActions.getTrendingProducts('MEN'))
   }, [])
 
   console.log(`loading`, loading)

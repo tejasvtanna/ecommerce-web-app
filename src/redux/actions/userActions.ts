@@ -7,6 +7,7 @@ export const userActions = {
   logOut,
   addNewUser,
   changeDefaultAddress,
+  resetStore,
 }
 
 function logIn(uid: string) {
@@ -25,6 +26,12 @@ function logIn(uid: string) {
 function logOut() {
   return (dispatch: any) => {
     dispatch({ type: actionConst.LOG_OUT })
+  }
+}
+
+function resetStore() {
+  return (dispatch: any) => {
+    dispatch({ type: actionConst.RESET })
   }
 }
 

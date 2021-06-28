@@ -2,7 +2,6 @@ import { actionConst } from '../../utilities/constants'
 
 const initialState = {
   laoding: true,
-  all: [],
 
   trendingMen: [],
   trendingWomen: [],

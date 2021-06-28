@@ -26,6 +26,9 @@ export default function orders(state = initialState, action: any) {
         list: [action.order, ...state.list],
       }
 
+    case actionConst.RESET:
+      return initialState
+
     default:
       return state
   }

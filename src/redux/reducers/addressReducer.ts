@@ -27,6 +27,9 @@ export default function addresses(state = initialState, action: any) {
         list: [...state.list, action.address],
       }
 
+    case actionConst.RESET:
+      return initialState
+
     default:
       return state
   }
