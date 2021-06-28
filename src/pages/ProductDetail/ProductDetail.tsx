@@ -58,8 +58,10 @@ const ProductDetail = ({}: Props) => {
             </Col>
           </Row>
           <Row>
-            <br />
-            <br />
+            <div>
+              <br />
+              <br />
+            </div>
           </Row>
           <Row>
             <Col sm={5}>

@@ -107,7 +107,9 @@ export const KeyInfo: React.FC<Props> = ({ product }: Props) => {
               </Col>
             </Row>
             <Row>
-              <br />
+              <div>
+                <br />
+              </div>
             </Row>
             <Row>
               <Col>
@@ -122,7 +124,9 @@ export const KeyInfo: React.FC<Props> = ({ product }: Props) => {
           </Col>
         </Row>
         <Row>
-          <br />
+          <div>
+            <br />
+          </div>
         </Row>
         <Row>
           <Col>
