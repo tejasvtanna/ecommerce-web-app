@@ -5,6 +5,7 @@ import { alertActions } from './alertActions'
 export const addressActions = {
   getAddressesByUser,
   addAddress,
+  editAddress,
 }
 
 function getAddressesByUser(addressId: string) {
@@ -32,6 +33,20 @@ function addAddress(address: any) {
       },
       (error) => {
         console.error(actionConst.ADD_ADDRESS, error.toString())
+      }
+    )
+  }
+}
+
+function editAddress(address: any) {
+  return (dispatch: any) => {
+    addressService.editAddress(address).then(
+      (res) => {
+        dispatch({ type: actionConst.EDIT_ADDRESS, address: res.data })
+        dispatch(alertActions.success('Address edited successfully'))
+      },
+      (error) => {
+        console.error(actionConst.EDIT_ADDRESS, error.toString())
       }
     )
   }

@@ -27,6 +27,12 @@ export default function addresses(state = initialState, action: any) {
         list: [...state.list, action.address],
       }
 
+    case actionConst.EDIT_ADDRESS:
+      return {
+        ...state,
+        list: state.list.map((addr: any) => (addr.id === action.address.id ? action.address : addr)),
+      }
+
     case actionConst.RESET:
       return initialState
 

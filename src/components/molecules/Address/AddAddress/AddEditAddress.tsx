@@ -7,22 +7,29 @@ import { Button } from 'components/atoms/Buttons'
 
 interface Props {
   setShowModal: any
+  addressToEdit: any
 }
 
-const AddAddress = ({ setShowModal }: Props) => {
+const AddEditAddress = ({ setShowModal, addressToEdit }: Props) => {
   const dispatch = useDispatch()
   const { currentUser } = useAuth()
-  const [contactPerson, setContactPerson] = useState('')
-  const [address, setAddress] = useState('')
-  const [city, setCity] = useState('')
-  const [state, setState] = useState('')
-  const [zip, setZip] = useState('')
+
+  const [contactPerson, setContactPerson] = useState(addressToEdit?.contactPerson || '')
+  const [address, setAddress] = useState(addressToEdit?.address || '')
+  const [city, setCity] = useState(addressToEdit?.city || '')
+  const [state, setState] = useState(addressToEdit?.state || '')
+  const [zip, setZip] = useState(addressToEdit?.zip || '')
 
   const handleSubmit = (e: any) => {
     e.preventDefault()
 
     const addressObj = { userId: currentUser.uid, contactPerson, address, city, state, zip }
-    dispatch(addressActions.addAddress(addressObj))
+
+    if (addressToEdit) {
+      dispatch(addressActions.editAddress({ id: addressToEdit.id, ...addressObj }))
+    } else {
+      dispatch(addressActions.addAddress(addressObj))
+    }
 
     setShowModal(false)
   }
@@ -78,4 +85,4 @@ const AddAddress = ({ setShowModal }: Props) => {
   )
 }
 
-export default AddAddress
+export default AddEditAddress
