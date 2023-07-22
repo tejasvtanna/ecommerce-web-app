@@ -1,8 +1,7 @@
 import React from 'react'
+import { render, screen, cleanup } from '@testing-library/react'
 import { IncrementDecrement } from '../IncrementDecrement'
 const renderer = require('react-test-renderer')
-
-import { fireEvent, render, screen, cleanup } from '@testing-library/react'
 
 afterEach(cleanup)
 

@@ -1,20 +1,12 @@
 import React, { useEffect } from 'react'
 import { Container, Row, Col } from 'react-bootstrap/'
-import ProductScreenTemplate from '../../components/templates/ProductScreenTemplate/ProductScreenTemplate'
-// import Card from '../../components/atoms/Card/Card'
-import ProductCard from '../../components/molecules/ProductCard/ProductCard'
+import ProductScreenTemplate from 'components/templates/ProductScreenTemplate/ProductScreenTemplate'
+import ProductCard from 'components/molecules/ProductCard/ProductCard'
 import { useSelector, useDispatch } from 'react-redux'
-import { useParams } from 'react-router-dom'
-import { productActions } from '../../redux/actions'
-// import qs from 'qs'
-import { BrowserRouter as Router, Switch, useLocation } from 'react-router-dom'
-import SearchFilter from '../ProductSearch/SearchFilter'
+import { productActions } from 'redux/actions'
+import { useLocation } from 'react-router-dom'
 
 interface Props {}
-
-{
-  /* <Route path="/search/:category/:brands/:gender" component={CardsDemo}></Route> */
-}
 
 const CardsDemo = ({}: Props) => {
   const qs = require('qs')
@@ -22,27 +14,14 @@ const CardsDemo = ({}: Props) => {
   const location = useLocation()
   const loading = useSelector((state: any) => state.products.loading)
   const products = useSelector((state: any) => state.products.all)
-  const { category, brands, gender }: any = useParams()
 
   console.log(`location`, location)
   useEffect(() => {
     // alert(location)
   }, [location])
 
-  // const arr = qs.parse(location.search, { ignoreQueryPrefix: true })
-  // const arr = qs.parse('a[]=b&a[]=c&b=1&c[]=1&c[]=2')
   const arr = qs.parse('?&gender=Male&gender=Female')
   console.log(`arr`, arr)
-
-  // return null
-
-  // console.log(`category`, category)
-  // console.log(`brands`, brands)
-  // console.log(`gender`, gender)
-
-  const update = () => {
-    window.history.pushState({}, '', '/search?hello[]=1&hello[]=2')
-  }
 
   useEffect(() => {
     dispatch(productActions.getTrendingProducts('MEN'))

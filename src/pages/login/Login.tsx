@@ -152,7 +152,7 @@ const Login = (props: Props) => {
             </Button>
 
             <p className="forgot-password text-right">
-              <Link to="/forgetPasword">Forgot password?</Link>
+              <Link to="/forgetPassword">Forgot password?</Link>
             </p>
             <p className="forgot-password text-right">
               <Link to="/register">Create New Account?</Link>

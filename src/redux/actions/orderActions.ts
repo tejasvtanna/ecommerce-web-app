@@ -1,5 +1,5 @@
-import { orderService } from '../../services'
-import { actionConst } from '../../utilities/constants'
+import { orderService } from 'services'
+import { actionConst } from 'utilities/constants'
 import { alertActions } from './alertActions'
 import { cartActions } from './cartActions'
 

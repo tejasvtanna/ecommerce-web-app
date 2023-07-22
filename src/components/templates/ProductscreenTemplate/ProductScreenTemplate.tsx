@@ -2,7 +2,7 @@ import React from 'react'
 import Footer from 'components/organisms/Footer/Footer'
 import Navbar from 'components/organisms/navbar/Navbar'
 import Alert from 'components/atoms/Alert/Alert'
-import BreadCrumbs from '../../organisms/breadcrumbs/BreadCrumbs'
+import BreadCrumbs from 'components/organisms/breadcrumbs/BreadCrumbs'
 
 interface Props {
   footer?: boolean

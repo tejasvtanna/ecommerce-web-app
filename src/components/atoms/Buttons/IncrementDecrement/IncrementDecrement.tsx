@@ -1,7 +1,6 @@
 import React from 'react'
 import styles from './IncrementDecrement.module.css'
 import { Button } from 'components/atoms/Buttons'
-import { fireEvent, render, screen, cleanup } from '@testing-library/react'
 
 interface Props {
   count: number

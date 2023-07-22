@@ -1,4 +1,4 @@
-import { actionConst } from '../../utilities/constants'
+import { actionConst } from 'utilities/constants'
 
 const initialState = {
   loading: false,

@@ -1,5 +1,5 @@
-import { wishlistService } from '../../services'
-import { actionConst } from '../../utilities/constants'
+import { wishlistService } from 'services'
+import { actionConst } from 'utilities/constants'
 import { alertActions } from '.'
 
 export const wishlistActions = {

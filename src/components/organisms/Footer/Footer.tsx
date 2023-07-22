@@ -1,6 +1,6 @@
-import React from 'react';
-import Typography from '../../atoms/typography/Typography';
-import styles from './footer.module.css';
+import React from 'react'
+import Typography from 'components/atoms/typography/Typography'
+import styles from './footer.module.css'
 interface Props {}
 
 const Footer = (props: Props) => {
@@ -42,7 +42,7 @@ const Footer = (props: Props) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

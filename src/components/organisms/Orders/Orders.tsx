@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import OrderDetail from 'components/molecules/Orders/OrderDetail/OrderDetail'
 import { useSelector, useDispatch } from 'react-redux'
-import { orderActions } from '../../../redux/actions'
+import { orderActions } from 'redux/actions'
 import { useAuth } from 'contexts/AuthContext'
 import FadingLoader from 'components/atoms/Loaders/FadingLoader'
 import { Link } from 'react-router-dom'

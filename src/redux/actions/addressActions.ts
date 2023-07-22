@@ -1,5 +1,5 @@
-import { addressService } from '../../services'
-import { actionConst } from '../../utilities/constants'
+import { addressService } from 'services'
+import { actionConst } from 'utilities/constants'
 import { alertActions } from './alertActions'
 
 export const addressActions = {

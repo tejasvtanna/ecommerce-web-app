@@ -26,12 +26,11 @@ const Routes = () => {
 
         <Route path="/search" component={ProductSearch}></Route>
         <Route path="/product/:productId" component={ProductDetail}></Route>
-        {/* <Route path="/cart" component={Cart}></Route> */}
         <PrivateRoute path="/cart" component={Cart} />
 
         <Route path="/login" component={Login}></Route>
         <Route path="/register" component={Register}></Route>
-        <Route path="/forgetPasword" component={ForgetPassword}></Route>
+        <Route path="/forgetPassword" component={ForgetPassword}></Route>
         <Route path="/profile" component={Profile}></Route>
 
         <Route path="*" component={NotFound404}></Route>

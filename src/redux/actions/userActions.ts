@@ -1,4 +1,4 @@
-import { userService } from '../../services'
+import { userService } from 'services'
 import { actionConst } from 'utilities/constants'
 import { alertActions } from 'redux/actions'
 

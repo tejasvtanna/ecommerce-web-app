@@ -1,5 +1,5 @@
 import api from './api'
-import { urlConst } from '../utilities/constants'
+import { urlConst } from 'utilities/constants'
 
 export const cartService = {
   getCartById,
@@ -26,6 +26,5 @@ function removeFromCart(id: number) {
 }
 
 function updateQty(data: any) {
-  // console.log(`cartService.data`, data)
   return api.put(urlConst.CARTS + `\\${data.id}`, data)
 }

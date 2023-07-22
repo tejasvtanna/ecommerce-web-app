@@ -1,5 +1,5 @@
-import { productService } from '../../services'
-import { actionConst } from '../../utilities/constants'
+import { productService } from 'services'
+import { actionConst } from 'utilities/constants'
 
 export const productActions = {
   getTrendingProducts,
