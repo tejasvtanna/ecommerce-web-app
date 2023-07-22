@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Container, Row, Col } from 'react-bootstrap/'
-import ProductScreenTemplate from '../../components/templates/ProductscreenTemplate/ProductScreenTemplate'
+import ProductScreenTemplate from '../../components/templates/ProductScreenTemplate/ProductScreenTemplate'
 // import Card from '../../components/atoms/Card/Card'
 import ProductCard from '../../components/molecules/ProductCard/ProductCard'
 import { useSelector, useDispatch } from 'react-redux'

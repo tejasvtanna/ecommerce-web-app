@@ -1,4 +1,4 @@
-import ProductScreenTemplate from 'components/templates/ProductscreenTemplate/ProductScreenTemplate'
+import ProductScreenTemplate from 'components/templates/ProductScreenTemplate/ProductScreenTemplate'
 import styles from './NotFound404.module.css'
 
 interface Props {

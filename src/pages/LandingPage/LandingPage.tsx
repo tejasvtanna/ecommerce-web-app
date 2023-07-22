@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import ProductScreenTemplate from 'components/templates/ProductscreenTemplate/ProductScreenTemplate'
+import ProductScreenTemplate from 'components/templates/ProductScreenTemplate/ProductScreenTemplate'
 import { Carousel, Container } from 'react-bootstrap'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -27,13 +27,11 @@ const LandingPage = () => {
   ]
 
   useEffect(() => {
-    // console.log('LandingPage.useEffect')
-
     if (!trendingMen.length) dispatch(productActions.getTrendingProducts('Men'))
     if (!trendingWomen.length) dispatch(productActions.getTrendingProducts('Women'))
     if (!trendingKids.length) dispatch(productActions.getTrendingProducts('Kids'))
     if (!topOffers.length) dispatch(productActions.getTopOfferProducts())
-  }, [])
+  }, [dispatch, topOffers.length, trendingKids.length, trendingMen.length, trendingWomen.length])
 
   return (
     <ProductScreenTemplate>

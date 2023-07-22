@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 import { Container, Row, Col } from 'react-bootstrap/'
-import ProductScreenTemplate from 'components/templates/ProductscreenTemplate/ProductScreenTemplate'
+import ProductScreenTemplate from 'components/templates/ProductScreenTemplate/ProductScreenTemplate'
 import ProductCard from 'components/molecules/ProductCard/ProductCard'
 import { useLocation } from 'react-router-dom'
 import SearchFilter from './SearchFilter'
