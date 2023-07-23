@@ -16,7 +16,7 @@ interface Props {}
 
 const Profile: React.FC<Props & RouteComponentProps> = ({ match }) => {
   const { user } = useSelector((state: any) => state.user)
-  const [selectedNav, setselectedNav] = useState('Addresses')
+  const [selectedNav, setSelectedNav] = useState('Addresses')
 
   return (
     <ProductScreenTemplate>
@@ -29,7 +29,7 @@ const Profile: React.FC<Props & RouteComponentProps> = ({ match }) => {
           <div className={styles.navigation}>
             {navItems.map((nav: string, idx: number) => (
               <span key={idx}>
-                <Link className={styles.link} to={`/profile/${nav}`} onClick={() => setselectedNav(nav)}>
+                <Link className={styles.link} to={`/profile/${nav}`} onClick={() => setSelectedNav(nav)}>
                   &gt; {nav}
                 </Link>
               </span>

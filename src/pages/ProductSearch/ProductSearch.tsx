@@ -13,8 +13,6 @@ const brandOptions = ['Roadster', 'Puma', 'HRX', 'Adidas', 'Flying Machine']
 const discountOptions = ['5', '10', '20', '30', '40']
 const deliveryOptions = ['Within 1 Week', 'Within 3 Days', 'Within 5 Days']
 
-// interface Props {}
-
 const ProductSearch: React.FC<{}> = () => {
   const initialRender = useRef(true)
   const [loading, setLoading] = useState<boolean>(true)
@@ -49,8 +47,11 @@ const ProductSearch: React.FC<{}> = () => {
   useEffect(() => {
     // alert('useEffect[] ' + initialRender.current)
 
-    if (location.search) updateStatesFromQueryString()
-    else getProductsUsingAPI('')
+    if (location.search) {
+      updateStatesFromQueryString()
+    } else {
+      getProductsUsingAPI('')
+    }
 
     initialRender.current = false
   }, [])
@@ -137,11 +138,6 @@ const ProductSearch: React.FC<{}> = () => {
       return [...validArr]
     }
   }
-
-  // console.log(`selectedBrands`, selectedBrands)
-  // console.log(`selectedGenders`, selectedGenders)
-  // console.log(`selectedDiscounts`, selectedDiscounts)
-  // console.log(`products`, products)
 
   return (
     <ProductScreenTemplate>

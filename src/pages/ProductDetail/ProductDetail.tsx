@@ -9,9 +9,7 @@ import Spinner from 'components/atoms/Loaders/ThreeDots'
 import api from 'services/api'
 import { urlConst } from 'utilities/constants'
 
-interface Props {}
-
-const ProductDetail = ({}: Props) => {
+const ProductDetail = () => {
   const [loading, setLoading] = useState(false)
   const [product, setProduct] = useState<any>()
 

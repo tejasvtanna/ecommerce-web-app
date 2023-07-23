@@ -11,18 +11,13 @@ interface Props {
 }
 
 const SearchFilter = ({ heading, options, selection, onSelectionChange, optionSuffix = '' }: Props) => {
-  // const [selected, setSelected] = useState<string[]>([])
-
   const handleChecked = (e: any, opt: string) => {
-    //   alert(opt)
     if (e.target.checked) {
       onSelectionChange((arr: any) => [...arr, opt])
     } else {
       onSelectionChange((arr: any) => arr.filter((ele: string) => ele !== opt))
     }
   }
-
-  // console.log(`selected`, selected)
 
   return (
     <Card className={styles.card}>

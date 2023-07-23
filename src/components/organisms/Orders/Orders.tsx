@@ -6,9 +6,7 @@ import { useAuth } from 'contexts/AuthContext'
 import FadingLoader from 'components/atoms/Loaders/FadingLoader'
 import { Link } from 'react-router-dom'
 
-interface Props {}
-
-const Orders = (props: Props) => {
+const Orders = () => {
   const dispatch = useDispatch()
   const { currentUser } = useAuth()
   const loading = useSelector((state: any) => state.orders.loading)
