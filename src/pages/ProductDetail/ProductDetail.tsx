@@ -15,7 +15,7 @@ const ProductDetail = ({}: Props) => {
   const [loading, setLoading] = useState(false)
   const [product, setProduct] = useState<any>()
 
-  let { productId }: any = useParams()
+  const { productId }: any = useParams()
 
   useEffect(() => {
     const getProductData = () => {
@@ -27,7 +27,7 @@ const ProductDetail = ({}: Props) => {
           setLoading(false)
         })
         .catch((error) => {
-          console.error('ProudctDetails.tsx.getProudctData() : ' + error.toString())
+          console.error('ProductDetails.tsx.getProductData() : ' + error.toString())
           setLoading(false)
         })
     }
@@ -40,8 +40,6 @@ const ProductDetail = ({}: Props) => {
   }
 
   if (!product && !loading) return <NotFound404 message="Product Not Found" />
-  // console.log(`product`, product)
-  // console.log(`loading`, loading)
 
   return (
     <ProductScreenTemplate>

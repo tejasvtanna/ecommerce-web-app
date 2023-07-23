@@ -63,11 +63,4 @@ const FadingLoaderCard5 = () => {
   )
 }
 
-FadingLoader.metadata = {
-  name: 'Nikhil Anand', // My name
-  github: 'anandnkhl', // Github username
-  description: 'Loader that fades downwards', // Little tagline
-  filename: 'FadingLoader', // filename of your loader
-}
-
 export default FadingLoader

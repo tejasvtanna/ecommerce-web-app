@@ -28,11 +28,15 @@ const LandingPage = () => {
   ]
 
   useEffect(() => {
-    if (!trendingMen.length) dispatch(productActions.getTrendingProducts(CUSTOMER_CATEGORY.MEN))
-    if (!trendingWomen.length) dispatch(productActions.getTrendingProducts(CUSTOMER_CATEGORY.WOMEN))
-    if (!trendingKids.length) dispatch(productActions.getTrendingProducts(CUSTOMER_CATEGORY.KIDS))
-    if (!topOffers.length) dispatch(productActions.getTopOfferProducts())
-  }, [dispatch, topOffers.length, trendingKids.length, trendingMen.length, trendingWomen.length])
+    const fetchProducts = async () => {
+      dispatch(productActions.getTrendingProducts(CUSTOMER_CATEGORY.MEN))
+      dispatch(productActions.getTrendingProducts(CUSTOMER_CATEGORY.WOMEN))
+      dispatch(productActions.getTrendingProducts(CUSTOMER_CATEGORY.KIDS))
+      dispatch(productActions.getTopOfferProducts())
+    }
+
+    void fetchProducts()
+  }, [dispatch])
 
   return (
     <ProductScreenTemplate>

@@ -19,14 +19,6 @@ const ProductHighlight = ({ heading, products }: Props) => {
         <Row>
           {!products.length && <Spinner />}
 
-          {/* {!products.length && (
-            <>
-              <Col sm={5}></Col>
-              <Col>
-                <ThreeDots />
-              </Col>
-            </>
-          )*/}
           {products.map((product: any) => (
             <Col sm={2} key={product.id}>
               <ProductCard product={product} openInNewTab={false} />

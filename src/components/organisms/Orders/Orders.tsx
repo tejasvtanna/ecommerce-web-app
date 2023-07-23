@@ -15,12 +15,15 @@ const Orders = (props: Props) => {
   const orders = useSelector((state: any) => state.orders.list)
 
   useEffect(() => {
-    if (!orders.length) dispatch(orderActions.getOrdersByUser(currentUser.uid))
-  }, [dispatch])
+    const fetchOrders = async () => {
+      dispatch(orderActions.getOrdersByUser(currentUser.uid))
+    }
+
+    void fetchOrders()
+  }, [dispatch, currentUser.uid])
 
   return (
     <>
-      {/* {loading && <h3>Loading....</h3>} */}
       {loading && <FadingLoader />}
 
       {!loading && !orders.length && (
