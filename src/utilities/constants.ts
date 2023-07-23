@@ -66,10 +66,3 @@ export const CUSTOMER_CATEGORY = {
   WOMEN: 'Women',
   KIDS: 'Kids',
 }
-
-// export const orderStatusConst: { string: string } = {
-//   '1': 'Order Placed',
-//   '2': 'Shipped',
-//   '3': 'Out For Delivery',
-//   '4': 'Delivered',
-// }

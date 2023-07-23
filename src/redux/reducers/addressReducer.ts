@@ -1,7 +1,7 @@
 import { actionConst } from 'utilities/constants'
 
 const initialState = {
-  laoding: true,
+  loading: true,
   list: [],
 }
 
