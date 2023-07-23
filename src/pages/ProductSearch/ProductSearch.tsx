@@ -175,7 +175,7 @@ const ProductSearch: React.FC<{}> = () => {
           <Col>
             <Row>
               {loading && <Spinner />}
-              {!loading && !products.length && <Col>No matching prducts found...</Col>}
+              {!loading && !products.length && <Col>No matching products found...</Col>}
 
               {!loading &&
                 products.map((product: any) => (

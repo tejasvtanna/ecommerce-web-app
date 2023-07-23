@@ -11,15 +11,15 @@ function getTrendingProducts(category: string) {
     productService.getTrendingProducts(category).then(
       (response) => {
         switch (category) {
-          case Category.MEN:
+          case Category.Men:
             dispatch({ type: actionConst.GET_TRENDING_PRODUCTS_MEN, products: response.data })
             break
 
-          case Category.WOMEN:
+          case Category.Women:
             dispatch({ type: actionConst.GET_TRENDING_PRODUCTS_WOMEN, products: response.data })
             break
 
-          case Category.KIDS:
+          case Category.Kids:
             dispatch({ type: actionConst.GET_TRENDING_PRODUCTS_KIDS, products: response.data })
             break
 

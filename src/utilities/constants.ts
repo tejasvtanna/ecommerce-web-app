@@ -62,9 +62,9 @@ export const actionConst = {
 }
 
 export const Category = {
-  MEN: 'Men',
-  WOMEN: 'Women',
-  KIDS: 'Kids',
+  Men: 'Men',
+  Women: 'Women',
+  Kids: 'Kids',
 }
 
 export const CategoryOptions = Object.values(Category)

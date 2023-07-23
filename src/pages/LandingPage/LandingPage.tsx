@@ -29,9 +29,9 @@ const LandingPage = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      dispatch(productActions.getTrendingProducts(Category.MEN))
-      dispatch(productActions.getTrendingProducts(Category.WOMEN))
-      dispatch(productActions.getTrendingProducts(Category.KIDS))
+      dispatch(productActions.getTrendingProducts(Category.Men))
+      dispatch(productActions.getTrendingProducts(Category.Women))
+      dispatch(productActions.getTrendingProducts(Category.Kids))
       dispatch(productActions.getTopOfferProducts())
     }
 
