@@ -5,7 +5,14 @@ import ProductCard from 'components/molecules/ProductCard/ProductCard'
 import { useLocation } from 'react-router-dom'
 import SearchFilter from './SearchFilter'
 import api from 'services/api'
-import { BrandOptions, CategoryOptions, DeliveryOptions, DiscountOptions, urlConst } from 'utilities/constants'
+import {
+  BrandOptions,
+  CategoryOptions,
+  DeliveryOptions,
+  DiscountOptions,
+  FilterOptions,
+  urlConst,
+} from 'utilities/constants'
 import Spinner from 'components/atoms/Loaders/ThreeDots'
 
 const ProductSearch: React.FC<{}> = () => {
@@ -23,15 +30,12 @@ const ProductSearch: React.FC<{}> = () => {
 
   useEffect(() => {
     if (initialRender.current) return
-    // alert('useEffect[location] ' + initialRender.current)
 
     updateStatesFromQueryString()
   }, [location])
 
   useEffect(() => {
     if (initialRender.current) return
-    // alert('useEffect[setState] ' + initialRender.current)
-    // console.log('useEffect2')
 
     const queryString = getQueryStringFromStates()
     window.history.pushState({}, '', '/search' + queryString)
@@ -40,8 +44,6 @@ const ProductSearch: React.FC<{}> = () => {
   }, [globalSearch, selectedCategories, selectedBrands, selectedDiscounts, selectedDeliveryTime])
 
   useEffect(() => {
-    // alert('useEffect[] ' + initialRender.current)
-
     if (location.search) {
       updateStatesFromQueryString()
     } else {
@@ -53,10 +55,8 @@ const ProductSearch: React.FC<{}> = () => {
 
   const getProductsUsingAPI = (queryString = '') => {
     setLoading(true)
-    console.log('GET -- ', urlConst.PRODUCTS + queryString)
     api.get(urlConst.PRODUCTS + queryString).then(
       (res) => {
-        // console.log(`productResults`, res.data)
         setProducts(res.data)
         setLoading(false)
       },
@@ -81,32 +81,29 @@ const ProductSearch: React.FC<{}> = () => {
 
   const updateStatesFromQueryString = () => {
     const qsArr = qs.parse(location.search, { ignoreQueryPrefix: true })
-    // console.log(`qsArr`, qsArr)
 
     Object.keys(qsArr).forEach((key) => {
-      // console.log(`key`, key, qsArr[key])
-
       switch (key.toUpperCase()) {
         case 'Q':
           setGlobalSearch(qsArr[key])
           break
 
-        case 'CATEGORY':
+        case FilterOptions.Category:
           const validGenders = getValidArray(CategoryOptions, qsArr, key)
           setSelectedCategories([...validGenders])
           break
 
-        case 'BRAND':
+        case FilterOptions.Brand:
           const validBrands = getValidArray(BrandOptions, qsArr, key)
           setSelectedBrands([...validBrands])
           break
 
-        case 'DISCOUNT':
+        case FilterOptions.Discount:
           const validDiscounts = getValidArray(DiscountOptions, qsArr, key)
           setSelectedDiscounts([...validDiscounts])
           break
 
-        case 'DELIVERYTIME':
+        case FilterOptions.DeliveryTime:
           const validDeliveryTime = getValidArray(DeliveryOptions, qsArr, key)
           setSelectedDiscounts([...validDeliveryTime])
           break
@@ -146,21 +143,21 @@ const ProductSearch: React.FC<{}> = () => {
             </h5>
             <br />
             <SearchFilter
-              heading={'Category'}
+              heading={FilterOptions.Category}
               options={CategoryOptions}
               selection={selectedCategories}
               onSelectionChange={setSelectedCategories}
             />
             <br />
             <SearchFilter
-              heading={'Brand'}
+              heading={FilterOptions.Brand}
               options={BrandOptions}
               selection={selectedBrands}
               onSelectionChange={setSelectedBrands}
             />
             <br />
             <SearchFilter
-              heading={'Discount'}
+              heading={FilterOptions.Discount}
               options={DiscountOptions}
               selection={selectedDiscounts}
               onSelectionChange={setSelectedDiscounts}
@@ -168,7 +165,7 @@ const ProductSearch: React.FC<{}> = () => {
             />
             <br />
             <SearchFilter
-              heading={'Delivery Time'}
+              heading={FilterOptions.DeliveryTime}
               options={DeliveryOptions}
               selection={selectedDeliveryTime}
               onSelectionChange={setSelectedDeliveryTime}

@@ -74,3 +74,10 @@ export const BrandOptions = ['Roadster', 'Puma', 'HRX', 'Adidas', 'Flying Machin
 export const DiscountOptions = ['5', '10', '20', '30', '40']
 
 export const DeliveryOptions = ['Within 1 Week', 'Within 3 Days', 'Within 5 Days']
+
+export const FilterOptions = {
+  Category: 'Category',
+  Brand: 'Brand',
+  Discount: 'Discount',
+  DeliveryTime: 'DeliveryTime',
+}
