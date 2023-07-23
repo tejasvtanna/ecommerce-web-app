@@ -61,8 +61,16 @@ export const actionConst = {
   UPDATE_CART_QTY: 'UPDATE_CART_QTY',
 }
 
-export const CUSTOMER_CATEGORY = {
+export const Category = {
   MEN: 'Men',
   WOMEN: 'Women',
   KIDS: 'Kids',
 }
+
+export const CategoryOptions = Object.values(Category)
+
+export const BrandOptions = ['Roadster', 'Puma', 'HRX', 'Adidas', 'Flying Machine']
+
+export const DiscountOptions = ['5', '10', '20', '30', '40']
+
+export const DeliveryOptions = ['Within 1 Week', 'Within 3 Days', 'Within 5 Days']

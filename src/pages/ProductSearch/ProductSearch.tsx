@@ -5,13 +5,8 @@ import ProductCard from 'components/molecules/ProductCard/ProductCard'
 import { useLocation } from 'react-router-dom'
 import SearchFilter from './SearchFilter'
 import api from 'services/api'
-import { urlConst } from 'utilities/constants'
+import { BrandOptions, CategoryOptions, DeliveryOptions, DiscountOptions, urlConst } from 'utilities/constants'
 import Spinner from 'components/atoms/Loaders/ThreeDots'
-
-const categoryOptions = ['Men', 'Women', 'Kids']
-const brandOptions = ['Roadster', 'Puma', 'HRX', 'Adidas', 'Flying Machine']
-const discountOptions = ['5', '10', '20', '30', '40']
-const deliveryOptions = ['Within 1 Week', 'Within 3 Days', 'Within 5 Days']
 
 const ProductSearch: React.FC<{}> = () => {
   const initialRender = useRef(true)
@@ -97,22 +92,22 @@ const ProductSearch: React.FC<{}> = () => {
           break
 
         case 'CATEGORY':
-          const validGenders = getValidArray(categoryOptions, qsArr, key)
+          const validGenders = getValidArray(CategoryOptions, qsArr, key)
           setSelectedCategories([...validGenders])
           break
 
         case 'BRAND':
-          const validBrands = getValidArray(brandOptions, qsArr, key)
+          const validBrands = getValidArray(BrandOptions, qsArr, key)
           setSelectedBrands([...validBrands])
           break
 
         case 'DISCOUNT':
-          const validDiscounts = getValidArray(discountOptions, qsArr, key)
+          const validDiscounts = getValidArray(DiscountOptions, qsArr, key)
           setSelectedDiscounts([...validDiscounts])
           break
 
         case 'DELIVERYTIME':
-          const validDeliveryTime = getValidArray(discountOptions, qsArr, key)
+          const validDeliveryTime = getValidArray(DeliveryOptions, qsArr, key)
           setSelectedDiscounts([...validDeliveryTime])
           break
 
@@ -152,21 +147,21 @@ const ProductSearch: React.FC<{}> = () => {
             <br />
             <SearchFilter
               heading={'Category'}
-              options={categoryOptions}
+              options={CategoryOptions}
               selection={selectedCategories}
               onSelectionChange={setSelectedCategories}
             />
             <br />
             <SearchFilter
               heading={'Brand'}
-              options={brandOptions}
+              options={BrandOptions}
               selection={selectedBrands}
               onSelectionChange={setSelectedBrands}
             />
             <br />
             <SearchFilter
               heading={'Discount'}
-              options={discountOptions}
+              options={DiscountOptions}
               selection={selectedDiscounts}
               onSelectionChange={setSelectedDiscounts}
               optionSuffix="%"
@@ -174,7 +169,7 @@ const ProductSearch: React.FC<{}> = () => {
             <br />
             <SearchFilter
               heading={'Delivery Time'}
-              options={deliveryOptions}
+              options={DeliveryOptions}
               selection={selectedDeliveryTime}
               onSelectionChange={setSelectedDeliveryTime}
             />

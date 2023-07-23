@@ -11,7 +11,7 @@ import BannerWomen from 'assets/banners/women.jpg'
 import BannerMenWomen from 'assets/banners/men-women.jpg'
 import BannerKids from 'assets/banners/kids.jpg'
 import ProductHighlight from './ProductHighlight'
-import { CUSTOMER_CATEGORY } from 'utilities/constants'
+import { Category } from 'utilities/constants'
 
 const LandingPage = () => {
   const dispatch = useDispatch()
@@ -29,9 +29,9 @@ const LandingPage = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      dispatch(productActions.getTrendingProducts(CUSTOMER_CATEGORY.MEN))
-      dispatch(productActions.getTrendingProducts(CUSTOMER_CATEGORY.WOMEN))
-      dispatch(productActions.getTrendingProducts(CUSTOMER_CATEGORY.KIDS))
+      dispatch(productActions.getTrendingProducts(Category.MEN))
+      dispatch(productActions.getTrendingProducts(Category.WOMEN))
+      dispatch(productActions.getTrendingProducts(Category.KIDS))
       dispatch(productActions.getTopOfferProducts())
     }
 

@@ -1,5 +1,5 @@
 import { productService } from 'services'
-import { CUSTOMER_CATEGORY, actionConst } from 'utilities/constants'
+import { Category, actionConst } from 'utilities/constants'
 
 export const productActions = {
   getTrendingProducts,
@@ -11,15 +11,15 @@ function getTrendingProducts(category: string) {
     productService.getTrendingProducts(category).then(
       (response) => {
         switch (category) {
-          case CUSTOMER_CATEGORY.MEN:
+          case Category.MEN:
             dispatch({ type: actionConst.GET_TRENDING_PRODUCTS_MEN, products: response.data })
             break
 
-          case CUSTOMER_CATEGORY.WOMEN:
+          case Category.WOMEN:
             dispatch({ type: actionConst.GET_TRENDING_PRODUCTS_WOMEN, products: response.data })
             break
 
-          case CUSTOMER_CATEGORY.KIDS:
+          case Category.KIDS:
             dispatch({ type: actionConst.GET_TRENDING_PRODUCTS_KIDS, products: response.data })
             break
 
