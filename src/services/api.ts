@@ -1,6 +1,5 @@
 import axios from 'axios'
-import { urlConst } from '../utilities/constants'
-// import { store } from '../redux/store'
+import { urlConst } from 'utilities/constants'
 
 const defaultHeaders = {
   'Content-Type': 'application/json',

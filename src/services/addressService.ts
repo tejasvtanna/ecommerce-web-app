@@ -1,5 +1,5 @@
 import api from './api'
-import { urlConst } from '../utilities/constants'
+import { urlConst } from 'utilities/constants'
 
 export const addressService = {
   getAddressByUser,
