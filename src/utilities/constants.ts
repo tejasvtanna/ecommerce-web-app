@@ -61,6 +61,12 @@ export const actionConst = {
   UPDATE_CART_QTY: 'UPDATE_CART_QTY',
 }
 
+export const CUSTOMER_CATEGORY = {
+  MEN: 'Men',
+  WOMEN: 'Women',
+  KIDS: 'Kids',
+}
+
 // export const orderStatusConst: { string: string } = {
 //   '1': 'Order Placed',
 //   '2': 'Shipped',
