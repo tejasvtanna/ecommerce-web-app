@@ -1,6 +1,6 @@
 import ContentLoader from 'react-content-loader'
 
-const ThreeDots = (props: any) => (
+const Spinner = (props: any) => (
   <div>
     <ContentLoader
       style={{ position: 'absolute', left: '0', right: '0', top: '0', bottom: '0', margin: 'auto' }}
@@ -15,11 +15,4 @@ const ThreeDots = (props: any) => (
   </div>
 )
 
-ThreeDots.metadata = {
-  name: 'RioF',
-  github: 'clariokids',
-  description: 'Three Dots',
-  filename: 'ThreeDots',
-}
-
-export default ThreeDots
+export default Spinner

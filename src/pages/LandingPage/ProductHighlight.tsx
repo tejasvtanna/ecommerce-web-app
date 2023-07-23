@@ -1,7 +1,7 @@
 // import React from 'react'
 import ProductCard from 'components/molecules/ProductCard/ProductCard'
 import { Card, Row, Col } from 'react-bootstrap'
-import ThreeDots from 'components/atoms/Loaders/ThreeDots'
+import Spinner from 'components/atoms/Loaders/ThreeDots'
 import styles from './ProductHighlight.module.css'
 
 interface Props {
@@ -17,7 +17,7 @@ const ProductHighlight = ({ heading, products }: Props) => {
       </Card.Header>
       <Card.Body>
         <Row>
-          {!products.length && <ThreeDots />}
+          {!products.length && <Spinner />}
 
           {/* {!products.length && (
             <>

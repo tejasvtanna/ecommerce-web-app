@@ -3,7 +3,7 @@ import '../register/registerlogin.css'
 import { Link } from 'react-router-dom'
 import { useHistory, useLocation } from 'react-router-dom'
 import { useAuth } from 'contexts/AuthContext'
-import ThreeDots from 'components/atoms/Loaders/ThreeDots'
+import Spinner from 'components/atoms/Loaders/ThreeDots'
 import { Button } from 'components/atoms/Buttons'
 import { userActions } from 'redux/actions/userActions'
 import { useDispatch } from 'react-redux'
@@ -105,7 +105,7 @@ const Login = (props: Props) => {
 
   return (
     <div className="outer">
-      {loading && <ThreeDots />}
+      {loading && <Spinner />}
       {!loading && (
         <div className="inner">
           <form onSubmit={(e) => handleLogin(e)}>

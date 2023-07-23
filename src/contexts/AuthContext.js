@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect, createContext } from 'react'
 import { auth, facebookProvider, db } from 'config/firebase'
 import { useDispatch } from 'react-redux'
-import ThreeDots from 'components/atoms/Loaders/ThreeDots'
+import Spinner from 'components/atoms/Loaders/ThreeDots'
 import { addressActions, cartActions, orderActions, userActions, wishlistActions } from 'redux/actions'
 
 const AuthContext = createContext()
@@ -137,5 +137,5 @@ export function AuthProvider({ children }) {
   // if (loading) return null
   // return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 
-  return <AuthContext.Provider value={value}>{loading ? <ThreeDots /> : children}</AuthContext.Provider>
+  return <AuthContext.Provider value={value}>{loading ? <Spinner /> : children}</AuthContext.Provider>
 }

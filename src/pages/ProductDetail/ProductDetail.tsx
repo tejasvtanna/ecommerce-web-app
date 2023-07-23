@@ -5,7 +5,7 @@ import ProductScreenTemplate from 'components/templates/ProductScreenTemplate/Pr
 import styles from './ProductDetail.module.css'
 import { useParams } from 'react-router-dom'
 import NotFound404 from '../NotFound404/NotFound404'
-import ThreeDots from 'components/atoms/Loaders/ThreeDots'
+import Spinner from 'components/atoms/Loaders/ThreeDots'
 import api from 'services/api'
 import { urlConst } from 'utilities/constants'
 
@@ -45,7 +45,7 @@ const ProductDetail = ({}: Props) => {
 
   return (
     <ProductScreenTemplate>
-      {loading && <ThreeDots />}
+      {loading && <Spinner />}
 
       {!loading && (
         <Container className={styles.container}>

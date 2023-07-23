@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom'
 import SearchFilter from './SearchFilter'
 import api from 'services/api'
 import { urlConst } from 'utilities/constants'
-import ThreeDots from 'components/atoms/Loaders/ThreeDots'
+import Spinner from 'components/atoms/Loaders/ThreeDots'
 
 const categoryOptions = ['Men', 'Women', 'Kids']
 const brandOptions = ['Roadster', 'Puma', 'HRX', 'Adidas', 'Flying Machine']
@@ -186,7 +186,7 @@ const ProductSearch: React.FC<{}> = () => {
 
           <Col>
             <Row>
-              {loading && <ThreeDots />}
+              {loading && <Spinner />}
               {!loading && !products.length && <Col>No matching prducts found...</Col>}
 
               {!loading &&

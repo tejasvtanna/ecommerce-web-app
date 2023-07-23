@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import './registerlogin.css'
 import { useHistory } from 'react-router-dom'
 import { useAuth } from 'contexts/AuthContext'
-import ThreeDots from 'components/atoms/Loaders/ThreeDots'
+import Spinner from 'components/atoms/Loaders/ThreeDots'
 import { Button } from 'components/atoms/Buttons'
 import { addressActions, cartActions, orderActions, userActions, wishlistActions } from 'redux/actions'
 
@@ -60,7 +60,7 @@ const Register = () => {
 
   return (
     <div className="outer">
-      {loading && <ThreeDots />}
+      {loading && <Spinner />}
 
       {!loading && (
         <div className="inner">
