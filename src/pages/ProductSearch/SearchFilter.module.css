@@ -16,4 +16,5 @@
 
 .label label {
   margin-left: 0.5rem;
+  cursor: pointer;
 }
