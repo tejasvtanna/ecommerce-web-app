@@ -1,0 +1,34 @@
+### GET ALL from Heroku
+GET http://localhost:4000/carts
+
+### UPDATE
+PUT  http://localhost:4000/carts/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "products": [
+    {
+      "productId": 158,
+      "color": "Pink",
+      "size": "S",
+      "qty": 2
+    },
+    {
+      "productId": 102,
+      "color": "Violet",
+      "size": "XS",
+      "qty": 2
+    },
+    {
+      "productId": 130,
+      "color": "Crimson",
+      "size": "XS",
+      "qty": 2
+    }
+  ]
+}
+
+### DELETE BY ID
+DELETE http://localhost:4000/carts/1?products.productId=158
+Content-Type: application/json
