@@ -1,0 +1,25 @@
+### GET ALL from Heroku
+GET http://localhost:4000/products
+
+### CREATE
+POST http://localhost:4000/products
+Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjksImlhdCI6MTU5NDE4NDc5N30.JXdUTFhrDUv6MnqP4_iGwvfm2SctTsPs2N9jw_Hg-l8
+
+  {
+    "id": 111,
+    "title": "The Pop Shoppe Pinapple",
+    "desc": "posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl",
+    "small_desc": "ultrices enim lorem ipsum",
+    "gender": "Male",
+    "ratings": 2,
+    "colors": [
+      "Violet",
+      "Violet",
+      "Mauv"
+    ],
+    "brand": "abc",
+    "price": 88,
+    "price_without_discount": 97.2,
+    "seller": "pedeafera"
+  }
