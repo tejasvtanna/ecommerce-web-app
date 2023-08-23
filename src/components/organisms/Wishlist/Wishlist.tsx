@@ -9,9 +9,7 @@ import { Link, useHistory } from 'react-router-dom'
 import { useAuth } from 'contexts/AuthContext'
 import { Button } from 'components/atoms/Buttons'
 
-interface Props {}
-
-const Wishlist = ({}: Props) => {
+const Wishlist = () => {
   const history = useHistory()
   const dispatch = useDispatch()
   const { currentUser } = useAuth()
@@ -19,10 +17,8 @@ const Wishlist = ({}: Props) => {
   const wishlist = useSelector((state: any) => state.wishlist.list)
 
   useEffect(() => {
-    if (!wishlist.length) {
-      dispatch(wishlistActions.getWishlistByUser(currentUser.uid))
-    }
-  }, [dispatch])
+    dispatch(wishlistActions.getWishlistByUser(currentUser.uid))
+  }, [dispatch, currentUser.uid])
 
   const handleRemove = (event: any, id: number) => {
     event.stopPropagation()
@@ -53,6 +49,7 @@ const Wishlist = ({}: Props) => {
                   <Row>
                     <Col sm={3}>
                       <img
+                        alt="Product Img"
                         className={styles.img}
                         src={wish.product.images && `${wish.product.images[0]}?random=${wish.id}`}
                       />
@@ -76,9 +73,6 @@ const Wishlist = ({}: Props) => {
                       </div>
                     </Col>
                     <Col className={styles.buttonsWrapper}>
-                      {/* <Button variant="danger" className={styles.button} block>
-                        <FiShoppingCart className={styles.icon} /> Add To Cart
-                      </Button> */}
                       <Button variant="light" onClick={(e: any) => handleRemove(e, wish.id)}>
                         <FiXSquare className={styles.icon} /> Remove
                       </Button>
