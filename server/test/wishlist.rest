@@ -1,8 +1,0 @@
-
-### GET ALL
-GET http://json-server-theta.herokuapp.com/wishlist
-
-
-### DELETE BY ID
-DELETE https://json-server-theta.herokuapp.com/wishlist/3
-Content-Type: application/json

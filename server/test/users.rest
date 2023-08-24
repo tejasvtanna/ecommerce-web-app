@@ -1,6 +1,0 @@
-### GET ALL
-GET http://json-server-theta.herokuapp.com/users
-
-### DELETE BY ID
-DELETE https://json-server-theta.herokuapp.com/users/IdsLn4Hk57PfesajMtolkR51pol1
-Content-Type: application/json
