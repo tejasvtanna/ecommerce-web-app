@@ -19,8 +19,10 @@ const Login = (props: Props) => {
   const history = useHistory()
   const location = useLocation()
 
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  // Auto-populate username & password for demo purpose
+  const [email, setEmail] = useState('tejas@tejas.com')
+  const [password, setPassword] = useState('7Q74qFN8!X7ie.!')
+
   const [error, setError] = useState<string>()
   const [loading, setLoading] = useState(false)
 

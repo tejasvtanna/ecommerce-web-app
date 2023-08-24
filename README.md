@@ -1,8 +1,10 @@
 # Little Tags - Online Cloth Store 👕
 
-_Project Link_ - ***https://little-tags-theta.netlify.app***
+> ### ***🔴 Live Demo 🔴***
+>  _Project Link:_ ***https://ecom-tejas.vercel.app*** <br/>
+>**Username**: tejas@tejas.com <br/> **Password**: 7Q74qFN8!X7ie.!
 
-## Features and Functionalities 🔥
+## Features and Functionalities 🚀
 
 - Login using Email or Facebook
 - Home Page with Tranding Items in each category
@@ -57,16 +59,11 @@ _Project Link_ - ***https://little-tags-theta.netlify.app***
 - [React.js](https://reactjs.org/)
 - [React-Bootstrap](https://react-bootstrap.github.io/)
 - [Firebase Authentication](https://firebase.google.com/)
-- [JSON Server](https://www.npmjs.com/package/json-server)
 - [Redux](https://redux.js.org/)
+- [JSON Server](https://www.npmjs.com/package/json-server)
 
 #
 
-## 🤩 Don't forget to give this repo a ⭐ if you like this repo and want to appreciate my efforts
-
-<br/>
- 
-[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)]()
 
 **Thanks & Regards, <br/>
 [Tejas Tanna](https://github.com/tejasvtanna)**
