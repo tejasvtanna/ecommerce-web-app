@@ -1,4 +1,3 @@
-import React from 'react'
 import { useDispatch } from 'react-redux'
 import { Card, Row, Col } from 'react-bootstrap'
 import { IncrementDecrement } from 'components/atoms/Buttons'
@@ -69,6 +68,8 @@ export const CartItems = ({ cartItems }: Props) => {
                       <span className={styles.smallDesc}>{item.product.smallDesc} </span>
                     </div>
                     <span className={styles.heading}>Price: </span>
+                    <s className={styles.priceWithoutDiscount}>{item.product.price + (item.product.price * item.product.discount) / 100}</s>
+                    {'  '}
                     {item.product.price}
                     <br />
                     <span className={styles.heading}>Delivery Time: </span>

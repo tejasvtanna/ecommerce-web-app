@@ -5,7 +5,7 @@ interface Props {
   defaultAddr: any
 }
 
-export const DefaultAddress = ({ defaultAddr }: Props) => {
+export const ShippingAddress = ({ defaultAddr }: Props) => {
   return (
     <Card>
       <Card.Header>

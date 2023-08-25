@@ -47,3 +47,8 @@
   float: left;
   /* max-height: ; */
 }
+
+.priceWithoutDiscount {
+  color: gray;
+  font-size: smaller;
+}

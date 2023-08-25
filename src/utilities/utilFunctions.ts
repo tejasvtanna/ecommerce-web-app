@@ -18,7 +18,7 @@ const loadScript = (src: string) => {
   })
 }
 
-export const processPaymentRazorpay = async (orderAmt: number, callbackFunc: any) => {
+export const processPaymentRazorPay = async (orderAmt: number, callbackFunc: any) => {
   const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
   if (!res) {
     alert('Razorpay SDK failed to load.')

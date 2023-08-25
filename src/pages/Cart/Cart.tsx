@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useMemo } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import { useSelector, useDispatch } from 'react-redux'
 import { cartActions, orderActions } from 'redux/actions'
 import ProductScreenTemplate from 'components/templates/ProductScreenTemplate/ProductScreenTemplate'
 import { Link, useHistory } from 'react-router-dom'
 import { useAuth } from 'contexts/AuthContext'
-import { CartSummary, CartItems, DefaultAddress } from 'components/molecules/Cart/'
-import { processPaymentRazorpay } from 'utilities/utilFunctions'
+import { CartSummary, CartItems, ShippingAddress } from 'components/molecules/Cart/'
+import { processPaymentRazorPay } from 'utilities/utilFunctions'
 import { Button } from 'components/atoms/Buttons'
 import FadingLoader from 'components/atoms/Loaders/FadingLoader'
 
@@ -17,9 +17,26 @@ const Cart = () => {
   const { loading, items: cartItems } = useSelector((state: any) => state.cart)
   const { user } = useSelector((state: any) => state.user)
   const addresses = useSelector((state: any) => state.addresses.list)
-
   const [defaultAddr, setDefaultAddr] = useState<any>()
-  const [netPayableAmt, setNetPayableAmt] = useState(0)
+
+  // Memoized function to calculate only if the cartItems change
+  const cartSummary = useMemo(() => {
+    const total = Math.round(
+      cartItems.reduce(
+        (acc: number, curr) => (acc += curr.product.price * curr.qty * (1 + curr.product.discount / 100)),
+        0
+      )
+    )
+    const discount = cartItems.reduce(
+      (acc: number, curr) => (acc += Math.round(curr.product.price * curr.qty * (curr.product.discount / 100))),
+      0
+    )
+    const deliveryCharge = cartItems.reduce((acc: number, curr) => (acc += curr.product.deliveryCharge), 0)
+    const gst = Math.round((total - discount) * 0.1)
+    const netPayableAmt = total - discount + gst + deliveryCharge
+
+    return { total, discount, deliveryCharge, gst, netPayableAmt }
+  }, [cartItems])
 
   useEffect(() => {
     dispatch(cartActions.getCartByUser(currentUser.uid))
@@ -46,7 +63,7 @@ const Cart = () => {
       userId: currentUser.uid,
       orderDate: d.toDateString() + ' ' + d.toLocaleTimeString(),
       orderStatus: 'Placed',
-      netPayableAmt,
+      netPayableAmt: cartSummary.netPayableAmt,
       paymentRefNumber,
       shippingAddr: { ...defaultAddr },
       products,
@@ -70,14 +87,16 @@ const Cart = () => {
               <CartItems cartItems={cartItems} />
             </Col>
             <Col>
-              <CartSummary cartItems={cartItems} netPayableAmt={netPayableAmt} updateNetPayableAmt={setNetPayableAmt} />
+              <CartSummary {...cartSummary} />
               <br />
-              <DefaultAddress defaultAddr={defaultAddr} />
+              <ShippingAddress defaultAddr={defaultAddr} />
               <br />
-              <Button block onClick={() => processPaymentRazorpay(netPayableAmt, placeOrder)} disabled={!defaultAddr}>
+              <Button
+                block
+                onClick={() => processPaymentRazorPay(cartSummary.netPayableAmt, placeOrder)}
+                disabled={!defaultAddr}>
                 Place Order
               </Button>
-              {/* <p>{netPayableAmt}</p> */}
             </Col>
           </Row>
         )}
