@@ -10,10 +10,10 @@ import styles from './CartSummary.module.css'
 interface Props {
   cartItems: any[]
   netPayableAmt: number
-  updateNetPaybleAmt: any
+  updateNetPayableAmt: any
 }
 
-export const CartSummary = ({ cartItems, netPayableAmt, updateNetPaybleAmt }: Props) => {
+export const CartSummary = ({ cartItems, netPayableAmt, updateNetPayableAmt }: Props) => {
   const [total, setTotal] = useState(0)
   const [discount, setDiscount] = useState(0)
   const [deliveryCharge, setDeliveryCharge] = useState(0)
@@ -39,7 +39,7 @@ export const CartSummary = ({ cartItems, netPayableAmt, updateNetPaybleAmt }: Pr
   }, [cartItems])
 
   useEffect(() => {
-    updateNetPaybleAmt(total - discount + gst + deliveryCharge)
+    updateNetPayableAmt(total - discount + gst + deliveryCharge)
   }, [total, discount, gst, deliveryCharge])
 
   return (

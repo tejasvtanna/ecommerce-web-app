@@ -40,7 +40,7 @@ export const ImageSlider: React.FC<Props> = ({ images }: Props) => {
               <img
                 className={`d-block w-100 ${styles.img}`}
                 src={img}
-                alt="Product Image"
+                alt="Product"
                 onClick={() => handleSelect(idx)}
               />
             </Col>

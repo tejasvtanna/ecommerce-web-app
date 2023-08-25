@@ -19,8 +19,8 @@ const ManageAddress = () => {
   const [editIdx, setEditIdx] = useState(-1)
 
   useEffect(() => {
-    if (!addresses.length) dispatch(addressActions.getAddressesByUser(currentUser.uid))
-  }, [])
+    dispatch(addressActions.getAddressesByUser(currentUser.uid))
+  }, [dispatch, currentUser.uid])
 
   const handleSetDefaultAddr = (e: any, id: number) => {
     e.stopPropagation()

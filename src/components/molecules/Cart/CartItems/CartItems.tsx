@@ -55,6 +55,7 @@ export const CartItems = ({ cartItems }: Props) => {
                 <Row>
                   <Col sm={4}>
                     <img
+                      alt={item.product.title}
                       src={item.product.images && `${item.product.images[0]}?random=${item.id}`}
                       style={{ maxHeight: '13rem' }}
                     />

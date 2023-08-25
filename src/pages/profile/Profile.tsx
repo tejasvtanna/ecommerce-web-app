@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
 import { Switch, Link } from 'react-router-dom'
 import Typography from 'components/atoms/typography/Typography'
@@ -16,7 +16,6 @@ interface Props {}
 
 const Profile: React.FC<Props & RouteComponentProps> = ({ match }) => {
   const { user } = useSelector((state: any) => state.user)
-  const [selectedNav, setSelectedNav] = useState('Addresses')
 
   return (
     <ProductScreenTemplate>
@@ -29,7 +28,7 @@ const Profile: React.FC<Props & RouteComponentProps> = ({ match }) => {
           <div className={styles.navigation}>
             {navItems.map((nav: string, idx: number) => (
               <span key={idx}>
-                <Link className={styles.link} to={`/profile/${nav}`} onClick={() => setSelectedNav(nav)}>
+                <Link className={styles.link} to={`/profile/${nav}`}>
                   &gt; {nav}
                 </Link>
               </span>

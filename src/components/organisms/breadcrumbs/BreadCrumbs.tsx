@@ -5,13 +5,10 @@ import styles from './breadcrumbs.module.css'
 import cx from 'classnames'
 import { toTitleCase } from 'utilities/utilFunctions'
 
-interface Props {}
-
-const BreadCrumbs = ({}: Props) => {
+const BreadCrumbs = () => {
   const {
     location: { pathname },
   } = useHistory()
-  // console.log('******', pathname.split('/'));
   let pages: string[] = pathname.split('/')
 
   return (

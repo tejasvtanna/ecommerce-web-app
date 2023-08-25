@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Navbar, Nav, NavDropdown, Form, FormControl, Badge, InputGroup } from 'react-bootstrap'
+import { Navbar, Nav, NavDropdown, Form, Badge, InputGroup } from 'react-bootstrap'
 import { FiShoppingCart, FiHeart } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
@@ -10,9 +10,7 @@ import { userActions } from 'redux/actions/userActions'
 import { BiSearchAlt2 } from 'react-icons/bi'
 import logo from 'assets/logo.png'
 
-interface Props {}
-
-const Navbar2 = ({}: Props) => {
+const Navbar2 = () => {
   const { loggedIn, user } = useSelector((state: any) => state.user)
   const { signout } = useAuth()
 
@@ -43,7 +41,7 @@ const Navbar2 = ({}: Props) => {
   return (
     <Navbar expand="lg" className={styles.navbar}>
       <Navbar.Brand as={Link} to="/" className={styles.brand2}>
-        <img src={logo} className={styles.logo} />
+        <img alt="Logo" src={logo} className={styles.logo} />
       </Navbar.Brand>
       {/* <Nav.Link as={Link} to={`/`}>
         <span className={styles.brand2}>

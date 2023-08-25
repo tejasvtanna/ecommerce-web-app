@@ -37,7 +37,7 @@ export const Reviews: React.FC<Props> = ({ productId }: Props) => {
     }
 
     getReviewsByProduct(productId)
-  }, [])
+  }, [productId])
 
   return (
     <Card className={styles.card}>

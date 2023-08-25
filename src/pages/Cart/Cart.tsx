@@ -10,9 +10,7 @@ import { processPaymentRazorpay } from 'utilities/utilFunctions'
 import { Button } from 'components/atoms/Buttons'
 import FadingLoader from 'components/atoms/Loaders/FadingLoader'
 
-interface Props {}
-
-const Cart = ({}: Props) => {
+const Cart = () => {
   const dispatch = useDispatch()
   const history = useHistory()
   const { currentUser } = useAuth()
@@ -24,8 +22,8 @@ const Cart = ({}: Props) => {
   const [netPayableAmt, setNetPayableAmt] = useState(0)
 
   useEffect(() => {
-    if (!cartItems.length) dispatch(cartActions.getCartByUser(currentUser.uid))
-  }, [])
+    dispatch(cartActions.getCartByUser(currentUser.uid))
+  }, [dispatch, currentUser])
 
   useEffect(() => {
     if (user.defaultAddressId) setDefaultAddr(addresses.find((addr: any) => addr.id === user.defaultAddressId))
@@ -72,7 +70,7 @@ const Cart = ({}: Props) => {
               <CartItems cartItems={cartItems} />
             </Col>
             <Col>
-              <CartSummary cartItems={cartItems} netPayableAmt={netPayableAmt} updateNetPaybleAmt={setNetPayableAmt} />
+              <CartSummary cartItems={cartItems} netPayableAmt={netPayableAmt} updateNetPayableAmt={setNetPayableAmt} />
               <br />
               <DefaultAddress defaultAddr={defaultAddr} />
               <br />

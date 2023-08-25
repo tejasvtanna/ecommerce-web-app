@@ -14,11 +14,11 @@ ReactGA.initialize('UA-132389607-7') // add your tracking id here.
 ReactGA.pageview(window.location.pathname + window.location.search)
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  // </React.StrictMode>,
   document.getElementById('root')
 )
 

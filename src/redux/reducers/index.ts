@@ -7,7 +7,6 @@ import wishlist from './wishlistReducer'
 import cart from './cartReducer'
 import addresses from './addressReducer'
 import alert from './alertReducer'
-import { actionConst } from 'utilities/constants'
 
 const appReducer = combineReducers({
   user,

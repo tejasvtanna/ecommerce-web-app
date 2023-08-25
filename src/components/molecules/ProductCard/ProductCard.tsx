@@ -1,4 +1,4 @@
-import { Card, Badge } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
 import styles from './ProductCard.module.css'
 import { WishlistButton } from 'components/atoms/Buttons'
 import { useHistory } from 'react-router'

@@ -29,7 +29,7 @@ export const FAQs: React.FC<Props> = ({ productId }: Props) => {
     }
 
     getFAQs()
-  }, [])
+  }, [productId])
 
   return (
     <Container>

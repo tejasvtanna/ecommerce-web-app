@@ -27,21 +27,10 @@ const Register = () => {
       dispatch(addressActions.getAddressesByUser(currentUser.uid))
       dispatch(orderActions.getOrdersByUser(currentUser.uid))
 
-      // adding new entry in json-server db
-      dispatch(
-        userActions.addNewUser({
-          id: currentUser.uid,
-          firstName,
-          lastName,
-          joinDate: Date(),
-          email,
-          defaultAddressId: 0,
-        })
-      )
       setLoading(false)
       history.push(`/`)
     }
-  }, [currentUser])
+  }, [currentUser, dispatch, history])
 
   const handleRegister = (e: any) => {
     e.preventDefault()
@@ -50,7 +39,17 @@ const Register = () => {
 
     signup(email, password, `${firstName} ${lastName}`)
       .then((uid: string) => {
-        // don't need to do anything
+        // adding new entry in json-server db
+        dispatch(
+          userActions.addNewUser({
+            id: uid,
+            firstName,
+            lastName,
+            joinDate: Date(),
+            email,
+            defaultAddressId: 0,
+          })
+        )
       })
       .catch((err: any) => {
         setError(err.message)

@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect, createContext } from 'react'
-import { auth, facebookProvider, db } from 'config/firebase'
+import { auth, facebookProvider } from 'config/firebase'
 import { useDispatch } from 'react-redux'
 import Spinner from 'components/atoms/Loaders/ThreeDots'
 import { addressActions, cartActions, orderActions, userActions, wishlistActions } from 'redux/actions'
@@ -122,7 +122,7 @@ export function AuthProvider({ children }) {
     })
 
     return unsubscribe
-  }, [currentUser])
+  }, [currentUser, dispatch])
 
   const value = {
     currentUser,
