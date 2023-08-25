@@ -51,13 +51,13 @@ const Navbar2 = () => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link as={Link} to={`/search?category=Men`} className={styles.link}>
+          <Nav.Link as={Link} to={`/search?Category=Men`} className={styles.link}>
             Men
           </Nav.Link>
-          <Nav.Link as={Link} to={`/search?category=Women`} className={styles.link}>
+          <Nav.Link as={Link} to={`/search?Category=Women`} className={styles.link}>
             Women
           </Nav.Link>
-          <Nav.Link as={Link} to={`/search?category=Kids`} className={styles.link}>
+          <Nav.Link as={Link} to={`/search?Category=Kids`} className={styles.link}>
             Kids
           </Nav.Link>
           <Form inline onSubmit={handleSearch}>

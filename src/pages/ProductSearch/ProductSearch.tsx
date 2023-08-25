@@ -71,10 +71,10 @@ const ProductSearch: React.FC<{}> = () => {
     let queryString = '?'
 
     if (globalSearch) queryString += `q=${globalSearch}`
-    selectedCategories.forEach((gender) => (queryString += `&category=${gender}`))
-    selectedBrands.forEach((brand) => (queryString += `&brand=${brand}`))
-    selectedDiscounts.forEach((discount) => (queryString += `&discount=${discount}`))
-    selectedDeliveryTime.forEach((delivery) => (queryString += `&deliveryTime=${delivery}`))
+    selectedCategories.forEach((gender) => (queryString += `&Category=${gender}`))
+    selectedBrands.forEach((brand) => (queryString += `&Brand=${brand}`))
+    selectedDiscounts.forEach((discount) => (queryString += `&Discount=${discount}`))
+    selectedDeliveryTime.forEach((delivery) => (queryString += `&DeliveryTime=${delivery}`))
 
     return queryString
   }
@@ -83,7 +83,7 @@ const ProductSearch: React.FC<{}> = () => {
     const qsArr = qs.parse(location.search, { ignoreQueryPrefix: true })
 
     Object.keys(qsArr).forEach((key) => {
-      switch (key.toUpperCase()) {
+      switch (key) {
         case 'Q':
           setGlobalSearch(qsArr[key])
           break
