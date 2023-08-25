@@ -47,7 +47,7 @@ const ProductSearch: React.FC<{}> = () => {
       const qsArr = qs.parse(queryString, { ignoreQueryPrefix: true })
       Object.keys(qsArr).forEach((key) => {
         switch (key) {
-          case 'Q':
+          case 'q':
             setGlobalSearch(qsArr[key])
             break
 
@@ -79,8 +79,6 @@ const ProductSearch: React.FC<{}> = () => {
     [qs]
   )
 
-  // Executes only once
-  // When component is rendered for the first time
   useEffect(() => {
     updateStatesFromQueryString(location.search)
   }, [location.search, updateStatesFromQueryString])
