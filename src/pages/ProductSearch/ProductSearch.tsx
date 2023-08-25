@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { Container, Row, Col } from 'react-bootstrap/'
 import ProductScreenTemplate from 'components/templates/ProductScreenTemplate/ProductScreenTemplate'
 import ProductCard from 'components/molecules/ProductCard/ProductCard'
@@ -14,9 +14,9 @@ import {
   urlConst,
 } from 'utilities/constants'
 import Spinner from 'components/atoms/Loaders/ThreeDots'
+import { getValidArray, getQueryStringFromStates } from 'utilities/utilFunctions'
 
 const ProductSearch: React.FC<{}> = () => {
-  const initialRender = useRef(true)
   const [loading, setLoading] = useState<boolean>(true)
   const qs = require('qs')
   const location = useLocation()
@@ -28,32 +28,7 @@ const ProductSearch: React.FC<{}> = () => {
   const [selectedDiscounts, setSelectedDiscounts] = useState<string[]>([])
   const [selectedDeliveryTime, setSelectedDeliveryTime] = useState<string[]>([])
 
-  useEffect(() => {
-    if (initialRender.current) return
-
-    updateStatesFromQueryString()
-  }, [location])
-
-  useEffect(() => {
-    if (initialRender.current) return
-
-    const queryString = getQueryStringFromStates()
-    window.history.pushState({}, '', '/search' + queryString)
-
-    getProductsUsingAPI(queryString)
-  }, [globalSearch, selectedCategories, selectedBrands, selectedDiscounts, selectedDeliveryTime])
-
-  useEffect(() => {
-    if (location.search) {
-      updateStatesFromQueryString()
-    } else {
-      getProductsUsingAPI('')
-    }
-
-    initialRender.current = false
-  }, [])
-
-  const getProductsUsingAPI = (queryString = '') => {
+  const fetchProducts = useCallback((queryString: string) => {
     setLoading(true)
     api.get(urlConst.PRODUCTS + queryString).then(
       (res) => {
@@ -61,75 +36,68 @@ const ProductSearch: React.FC<{}> = () => {
         setLoading(false)
       },
       (error) => {
-        console.error('useEffect Get Produc By Filter', error.toString())
+        console.error('useEffect Get Product By Filter', error.toString())
         setLoading(false)
       }
     )
-  }
+  }, [])
 
-  const getQueryStringFromStates = () => {
-    let queryString = '?'
+  const updateStatesFromQueryString = useCallback(
+    (queryString) => {
+      const qsArr = qs.parse(queryString, { ignoreQueryPrefix: true })
+      Object.keys(qsArr).forEach((key) => {
+        switch (key) {
+          case 'Q':
+            setGlobalSearch(qsArr[key])
+            break
 
-    if (globalSearch) queryString += `q=${globalSearch}`
-    selectedCategories.forEach((gender) => (queryString += `&Category=${gender}`))
-    selectedBrands.forEach((brand) => (queryString += `&Brand=${brand}`))
-    selectedDiscounts.forEach((discount) => (queryString += `&Discount=${discount}`))
-    selectedDeliveryTime.forEach((delivery) => (queryString += `&DeliveryTime=${delivery}`))
+          case FilterOptions.Category:
+            const validGenders = getValidArray(CategoryOptions, qsArr, key)
+            setSelectedCategories([...validGenders])
+            break
 
-    return queryString
-  }
+          case FilterOptions.Brand:
+            const validBrands = getValidArray(BrandOptions, qsArr, key)
+            setSelectedBrands([...validBrands])
+            break
 
-  const updateStatesFromQueryString = () => {
-    const qsArr = qs.parse(location.search, { ignoreQueryPrefix: true })
+          case FilterOptions.Discount:
+            const validDiscounts = getValidArray(DiscountOptions, qsArr, key)
+            setSelectedDiscounts([...validDiscounts])
+            break
 
-    Object.keys(qsArr).forEach((key) => {
-      switch (key) {
-        case 'Q':
-          setGlobalSearch(qsArr[key])
-          break
+          case FilterOptions.DeliveryTime:
+            const validDeliveryTime = getValidArray(DeliveryOptions, qsArr, key)
+            setSelectedDiscounts([...validDeliveryTime])
+            break
 
-        case FilterOptions.Category:
-          const validGenders = getValidArray(CategoryOptions, qsArr, key)
-          setSelectedCategories([...validGenders])
-          break
-
-        case FilterOptions.Brand:
-          const validBrands = getValidArray(BrandOptions, qsArr, key)
-          setSelectedBrands([...validBrands])
-          break
-
-        case FilterOptions.Discount:
-          const validDiscounts = getValidArray(DiscountOptions, qsArr, key)
-          setSelectedDiscounts([...validDiscounts])
-          break
-
-        case FilterOptions.DeliveryTime:
-          const validDeliveryTime = getValidArray(DeliveryOptions, qsArr, key)
-          setSelectedDiscounts([...validDeliveryTime])
-          break
-
-        default:
-          break
-      }
-    })
-  }
-
-  const getValidArray = (optionsArr: string[], qsArr: any, key: string): string[] => {
-    if (typeof qsArr[key] === 'string') {
-      const qsValue = qsArr[key]
-      if (optionsArr.indexOf(qsValue) >= 0) {
-        return [qsValue]
-      } else {
-        return []
-      }
-    } else {
-      const arr = [...qsArr[key]]
-      const validArr = arr.map((ele: any) => {
-        if (optionsArr.indexOf(ele) >= 0) return ele
+          default:
+            break
+        }
       })
-      return [...validArr]
-    }
-  }
+    },
+    [qs]
+  )
+
+  // Executes only once
+  // When component is rendered for the first time
+  useEffect(() => {
+    updateStatesFromQueryString(location.search)
+  }, [location.search, updateStatesFromQueryString])
+
+  useEffect(() => {
+    // Update URL based on filters selected
+    const queryString = getQueryStringFromStates(
+      globalSearch,
+      selectedCategories,
+      selectedBrands,
+      selectedDiscounts,
+      selectedDeliveryTime
+    )
+    window.history.pushState({}, '', '/search' + queryString)
+
+    fetchProducts(queryString)
+  }, [globalSearch, selectedCategories, selectedBrands, selectedDiscounts, selectedDeliveryTime, fetchProducts])
 
   return (
     <ProductScreenTemplate>
@@ -137,10 +105,7 @@ const ProductSearch: React.FC<{}> = () => {
         <Row>
           <Col sm={2}>
             <br />
-            <h5>
-              Products Found: {products.length}
-              {/* <Badge variant="secondary">Matching Products: {products.length}</Badge> */}
-            </h5>
+            <h5>Products Found: {products.length}</h5>
             <br />
             <SearchFilter
               heading={FilterOptions.Category}

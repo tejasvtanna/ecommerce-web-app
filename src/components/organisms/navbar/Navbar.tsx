@@ -43,21 +43,16 @@ const Navbar2 = () => {
       <Navbar.Brand as={Link} to="/" className={styles.brand2}>
         <img alt="Logo" src={logo} className={styles.logo} />
       </Navbar.Brand>
-      {/* <Nav.Link as={Link} to={`/`}>
-        <span className={styles.brand2}>
-          Little<span className={styles.tags}>Tags</span>
-        </span>
-      </Nav.Link> */}
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link as={Link} to={`/search?Category=Men`} className={styles.link}>
+          <Nav.Link as={Link} to={`/search?category=Men`} className={styles.link}>
             Men
           </Nav.Link>
-          <Nav.Link as={Link} to={`/search?Category=Women`} className={styles.link}>
+          <Nav.Link as={Link} to={`/search?category=Women`} className={styles.link}>
             Women
           </Nav.Link>
-          <Nav.Link as={Link} to={`/search?Category=Kids`} className={styles.link}>
+          <Nav.Link as={Link} to={`/search?category=Kids`} className={styles.link}>
             Kids
           </Nav.Link>
           <Form inline onSubmit={handleSearch}>
@@ -75,13 +70,6 @@ const Navbar2 = () => {
                 </InputGroup.Text>
               </InputGroup.Append>
             </InputGroup>
-            {/* <FormControl
-              value={searchText}
-              className={styles.search}
-              type="text"
-              placeholder="Search Products"
-              onChange={(e: any) => setSearchText(e.target.value)}
-            /> */}
           </Form>
         </Nav>
         <Nav>

@@ -48,6 +48,39 @@ export const processPaymentRazorPay = async (orderAmt: number, callbackFunc: any
     },
   }
 
-  const paymentObject = new (window as any).Razorpay(options)
+  const paymentObject = new (window as any).RazorPay(options)
   paymentObject.open()
+}
+
+export const getValidArray = (optionsArr: string[], qsArr: any, key: string): string[] => {
+  if (typeof qsArr[key] === 'string') {
+    const qsValue = qsArr[key]
+    if (optionsArr.indexOf(qsValue) >= 0) {
+      return [qsValue]
+    } else {
+      return []
+    }
+  } else {
+    const arr = [...qsArr[key]]
+    const validArr = arr.filter((ele) => optionsArr.indexOf(ele) >= 0)
+    return [...validArr]
+  }
+}
+
+export const getQueryStringFromStates = (
+  globalSearch: string,
+  categories: string[],
+  brands: string[],
+  discounts: string[],
+  deliveryTime: string[]
+) => {
+  let queryString = '?'
+
+  if (globalSearch) queryString += `q=${globalSearch}`
+  categories.forEach((gender) => (queryString += `&category=${gender}`))
+  brands.forEach((brand) => (queryString += `&brand=${brand}`))
+  discounts.forEach((discount) => (queryString += `&discount=${discount}`))
+  deliveryTime.forEach((delivery) => (queryString += `&deliveryTime=${delivery}`))
+
+  return queryString
 }

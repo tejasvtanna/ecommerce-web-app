@@ -10,6 +10,14 @@ interface Props {
   optionSuffix?: string
 }
 
+const toSentenceCase = (camelCase) => {
+  if (camelCase) {
+    const result = camelCase.replace(/([A-Z])/g, ' $1')
+    return result[0].toUpperCase() + result.substring(1).toLowerCase()
+  }
+  return ''
+}
+
 const SearchFilter = ({ heading, options, selection, onSelectionChange, optionSuffix = '' }: Props) => {
   const handleChecked = (e: any, opt: string) => {
     if (e.target.checked) {
@@ -21,7 +29,7 @@ const SearchFilter = ({ heading, options, selection, onSelectionChange, optionSu
 
   return (
     <Card className={styles.card}>
-      <Card.Header className={styles.header}>{heading}</Card.Header>
+      <Card.Header className={styles.header}>{toSentenceCase(heading)}</Card.Header>
       <Card.Body>
         <Form>
           {options.map((opt: string, idx: number) => (
