@@ -1,3 +1,3 @@
 export * from './CartSummary/CartSummary'
 export * from './CartItems/CartItems'
-export * from './DefaultAddress/DefaultAddress'
+export * from './ShippingAddress/ShippingAddress'
