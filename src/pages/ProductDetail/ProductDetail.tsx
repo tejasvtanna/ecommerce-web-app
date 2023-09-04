@@ -13,7 +13,7 @@ const ProductDetail = () => {
   const [loading, setLoading] = useState(false)
   const [product, setProduct] = useState<any>()
 
-  const { productId }: any = useParams()
+  const { productId } = useParams<{productId: string}>()
 
   useEffect(() => {
     const getProductData = () => {

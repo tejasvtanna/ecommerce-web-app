@@ -1,6 +1,6 @@
 import ContentLoader from 'react-content-loader'
 
-const ImageGrid = (props: any) => (
+const ImageGrid = (props) => (
   <ContentLoader
     width={800}
     height={575}
