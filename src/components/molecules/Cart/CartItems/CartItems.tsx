@@ -6,6 +6,7 @@ import { Button } from 'components/atoms/Buttons'
 
 import { cartActions } from 'redux/actions'
 import styles from './CartItems.module.css'
+import React from 'react'
 
 interface Props {
   cartItems: any[]
@@ -14,12 +15,12 @@ interface Props {
 export const CartItems = ({ cartItems }: Props) => {
   const dispatch = useDispatch()
 
-  const handleRemove = (event: any, id: number) => {
+  const handleRemove = (event: React.MouseEvent, id: number) => {
     event.stopPropagation()
     dispatch(cartActions.removeFromCart(id))
   }
 
-  const handleUpdateQty = (event: any, id: number, qty: number) => {
+  const handleUpdateQty = (event: React.MouseEvent, id: number, qty: number) => {
     if (qty === 0) {
       handleRemove(event, id)
       return
@@ -92,10 +93,10 @@ export const CartItems = ({ cartItems }: Props) => {
                   <Col className={styles.buttonsWrapper}>
                     <IncrementDecrement
                       count={item.qty}
-                      onIncrement={(e: any) => handleUpdateQty(e, item.id, item.qty + 1)}
-                      onDecrement={(e: any) => handleUpdateQty(e, item.id, item.qty - 1)}
+                      onIncrement={e => handleUpdateQty(e, item.id, item.qty + 1)}
+                      onDecrement={e => handleUpdateQty(e, item.id, item.qty - 1)}
                     />
-                    <Button variant="light" onClick={(e: any) => handleRemove(e, item.id)}>
+                    <Button variant="light" onClick={(e) => handleRemove(e, item.id)}>
                       <ImCross className={styles.icon} /> Remove
                     </Button>
                   </Col>

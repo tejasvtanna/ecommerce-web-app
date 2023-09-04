@@ -5,7 +5,7 @@ import { useAuth } from 'contexts/AuthContext'
 interface Prop {
   path: string
   component: any
-  exact?: any
+  exact?: boolean
 }
 
 function PrivateRoute({ path, component: Component, exact, ...rest }: Prop) {

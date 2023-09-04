@@ -6,7 +6,7 @@ import { addressActions } from 'redux/actions'
 import { Button } from 'components/atoms/Buttons'
 
 interface Props {
-  setShowModal: any
+  setShowModal: (value: boolean) => void
   addressToEdit: any
 }
 
