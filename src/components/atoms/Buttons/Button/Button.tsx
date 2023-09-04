@@ -8,7 +8,7 @@ interface Props {
   customStyle?: CSS.Properties
   disabled?: boolean
   type?: string
-  onClick?: any
+  onClick?: (e: React.MouseEvent) => void
 }
 
 export const Button: React.FC<Props> = ({
