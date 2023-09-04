@@ -22,39 +22,39 @@ export const CartSummary = ({ total, discount, deliveryCharge, gst, netPayableAm
         <Card.Body>
           <Table hover className={styles.table}>
             <tbody>
-              <tr>
+              <tr className={styles.tr}>
                 <td style={{ width: '10%' }}>
                   <BsCardList className={styles.icon} />
                 </td>
                 <td className={styles.heading}>Total</td>
                 <td>₹ {total}</td>
               </tr>
-              <tr>
+              <tr className={styles.tr}>
                 <td>
                   <MdLocalOffer className={styles.icon} />
                 </td>
                 <td className={styles.heading}>Discount Applied</td>
                 <td>₹ {discount}</td>
               </tr>
-              <tr>
+              <tr className={styles.tr}>
                 <td>
                   <HiReceiptTax className={styles.icon} />
                 </td>
                 <td className={styles.heading}>GST</td>
                 <td>₹ {gst}</td>
               </tr>
-              <tr>
+              <tr className={styles.tr}>
                 <td>
                   <MdLocalShipping className={styles.icon} />
                 </td>
                 <td className={styles.heading}>Delivery Charge</td>
                 <td>₹ {deliveryCharge}</td>
               </tr>
-              <tr>
+              <tr className={styles.tr}>
                 <td>
                   <BiRupee className={styles.icon} />
                 </td>
-                <td className={styles.heading}>Net Payabl Amount</td>
+                <td className={styles.heading}>Net Payable Amount</td>
                 <td>₹ {netPayableAmt}</td>
               </tr>
             </tbody>
