@@ -20,7 +20,7 @@ const AddEditAddress = ({ setShowModal, addressToEdit }: Props) => {
   const [state, setState] = useState(addressToEdit?.state || '')
   const [zip, setZip] = useState(addressToEdit?.zip || '')
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
 
     const addressObj = { userId: currentUser.uid, contactPerson, address, city, state, zip }
@@ -37,7 +37,7 @@ const AddEditAddress = ({ setShowModal, addressToEdit }: Props) => {
   return (
     <Modal show={true} onHide={() => setShowModal(false)}>
       <Modal.Header closeButton>
-        <Modal.Title>Add New Address</Modal.Title>
+        <Modal.Title>{addressToEdit ? 'Update Address' : 'Add New Address'}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={(e) => handleSubmit(e)}>
@@ -77,7 +77,7 @@ const AddEditAddress = ({ setShowModal, addressToEdit }: Props) => {
             <Form.Control type="text" placeholder="Enter zip" value={zip} onChange={(e) => setZip(e.target.value)} />
           </Form.Group>
           <Button type="submit" disabled={!contactPerson || !address || !city || !state || !zip}>
-            Submit
+            {addressToEdit ? 'Update Address' : 'Add Address'}
           </Button>
         </Form>
       </Modal.Body>
