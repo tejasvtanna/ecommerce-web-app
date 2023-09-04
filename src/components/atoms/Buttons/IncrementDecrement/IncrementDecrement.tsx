@@ -4,8 +4,8 @@ import { Button } from 'components/atoms/Buttons'
 
 interface Props {
   count: number
-  onIncrement: any
-  onDecrement: any
+  onIncrement: (e: React.MouseEvent) => void
+  onDecrement: (e: React.MouseEvent) => void
 }
 
 export const IncrementDecrement = ({ count, onIncrement, onDecrement }: Props) => {
